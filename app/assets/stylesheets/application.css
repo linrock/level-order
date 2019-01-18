@@ -1,0 +1,13 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  margin: 80px auto;
+  width: 800px;
+}
