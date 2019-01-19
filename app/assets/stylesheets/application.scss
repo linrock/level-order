@@ -7,7 +7,17 @@ body {
   font-family: Arial, sans-serif;
 }
 
+a {
+  display: block;
+}
+
 .container {
   margin: 80px auto;
   width: 800px;
+}
+
+table.complexity {
+  td:first-child {
+    padding-right: 15px;
+  }
 }

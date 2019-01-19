@@ -1,0 +1,7 @@
+<div class="container">
+  <% @problems.each do |problem| %>
+    <a href="/problems/<%= problem %>">
+      <%= problem.gsub(/-/, ' ').capitalize %>
+    </a>
+  <% end %>
+</div>
