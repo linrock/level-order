@@ -10,7 +10,8 @@
 import hljs from 'highlight.js/lib/highlight';
 import javascript from 'highlight.js/lib/languages/javascript';
 import ruby from 'highlight.js/lib/languages/ruby';
-import 'highlight.js/styles/github.css'
+import 'highlight.js/styles/shades-of-purple.css'
+// import 'highlight.js/styles/atelier-sulphurpool-dark.css'
 
 hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('ruby', ruby);

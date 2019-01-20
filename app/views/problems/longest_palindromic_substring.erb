@@ -1,23 +1,76 @@
 <h1>Longest palindromic substring</h1>
 
 <div>
-  Given a string S, find the longest substring of S that's also a palindrome
+  Given a string S, find the longest substring of S that's also a
+  palindrome. A palindrome is a string that's the same as when it's
+  reversed.
+</div>
+
+<br>
+<div>
+  ABCDEEEDFG
+</div>
+
+<div>
+  DEEED
+</div>
+
+<div class="solutions">
+  <table class="complexities">
+    <tr>
+      <td>Solution</td>
+      <td>Time</td>
+      <td>Space</td>
+    </tr>
+    <tr>
+      <td>Bruce force</td>
+      <td>O(n<sup>3</sup>)</td>
+      <td>O(n)</td>
+    </tr>
+    <tr>
+      <td>Dynamic programming</td>
+      <td>O(n<sup>2</sup>)</td>
+      <td>O(n<sup>2</sup>)</td>
+    </tr>
+    <tr>
+      <td>Central expansion</td>
+      <td>O(n<sup>2</sup>)</td>
+      <td>O(n)</td>
+    </tr>
+  </table>
 </div>
 
 <section class="solutions">
   <h2>Solution 1: Brute force</h2>
+  <div class="explanation">
+    For all n<sup>2</sup> possible substrings, check if it's a palindrome.
+    If it's a palindrome and it's longer than the currently-longest
+    palindrome, replace the currently-longest palindrome.
+    Each of n<sup>2</sup> checks takes O(n) time, for a time complexity
+    of O(n<sup>3</sup>).
+  </div>
+  <%= code_block "app/code/problems/longest_palindromic_substring/s1.rb" %>
   <table class="complexity">
     <tr><td>Time</td><td>O(n<sup>3</sup>)</td></tr>
     <tr><td>Space</td><td>O(n)</td></tr>
   </table>
 
   <h2>Solution 2: Dynamic programming</h2>
+  <div class="explanation">
+    Let is_palindrome[i][j] represent whether a substring of S starting at
+    i and ending at j is a palindrome.
+  </div>
   <table class="complexity">
     <tr><td>Time</td><td>O(n<sup>2</sup>)</td></tr>
     <tr><td>Space</td><td>O(n<sup>2</sup>)</td></tr>
   </table>
 
   <h2>Solution 3: Central expansion</h2>
+  <div class="explanation">
+    Iterate over all possible centers of palindromes.
+    For each center, search outwards for a longer palindrome.
+    Store the currently-longest palindrome.
+  </div>
   <table class="complexity">
     <tr><td>Time</td><td>O(n<sup>2</sup>)</td></tr>
     <tr><td>Space</td><td>O(n)</td></tr>

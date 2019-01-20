@@ -9,9 +9,10 @@ def counting_sort(values, k)
     counts[i] = total
     total += old_count
   end
-  values.reduce([]) do |output, value|
-    output[counts[value]] = value
+  sorted = []
+  values.each do |value|
+    sorted[counts[value]] = value
     counts[value] += 1
-    output
   end
+  sorted
 end

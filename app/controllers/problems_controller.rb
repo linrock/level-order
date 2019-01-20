@@ -1,4 +1,5 @@
 class ProblemsController < ApplicationController
+  layout 'problems'
 
   def index
     @problems = Dir.glob("app/views/problems/*.erb").map do |p|

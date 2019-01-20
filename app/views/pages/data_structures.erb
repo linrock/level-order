@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Data structures</h1>
+
+  <% @data_structures.each do |ds| %>
+    <a href="/<%= ds %>">
+      <%= ds.gsub(/-/, ' ').capitalize %>
+    </a>
+  <% end %>
+</div>

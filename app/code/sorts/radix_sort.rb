@@ -20,8 +20,8 @@ def counting_sort(values, digit)
 end
 
 def radix_sort(values)
-  m = values.max.to_s.length
-  (0 .. m-1).each do |d|
+  n = values.max.digits.count
+  (0 .. n-1).each do |d|
     values = counting_sort(values, d)
   end
   values

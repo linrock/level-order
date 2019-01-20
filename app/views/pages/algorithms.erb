@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Algorithms</h1>
+
+  <% @algorithms.each do |algo| %>
+    <a href="/<%= algo %>">
+      <%= algo.gsub(/-/, ' ').capitalize %>
+    </a>
+  <% end %>
+</div>

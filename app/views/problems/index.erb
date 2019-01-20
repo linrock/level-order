@@ -1,4 +1,6 @@
 <div class="container">
+  <h1>Problems</h1>
+
   <% @problems.each do |problem| %>
     <a href="/problems/<%= problem %>">
       <%= problem.gsub(/-/, ' ').capitalize %>
