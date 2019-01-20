@@ -5,24 +5,45 @@
 </div>
 
 <%= code_block "app/code/data_structures/disjoint_set/s1.rb" %>
-<div>
-  Time complexity:
-  Union   O(n)
-  Find    O(n)
-
-  Space complexity: O(n)
-</div>
+<table class="complexity">
+  <tr>
+    <td>Time</td>
+    <td>Union</td>
+    <td>O(n)</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Find</td>
+    <td>O(n)</td>
+  </tr>
+  <tr>
+    <td>Space</td>
+    <td></td>
+    <td>O(n)</td>
+  </tr>
+</table>
 
 <div>
   By using path compression and union by rank, the time complexity
-  of the union and find operations are reduced to constant time.
+  of the union and find operations are effectively reduced to constant
+  time.
 </div>
 
 <%= code_block "app/code/data_structures/disjoint_set/s2.rb" %>
-<div>
-  Time complexity:
-  Union   O(a(n)) ~ O(1)
-  Find    O(a(n)) ~ O(1)
-
-  Space complexity: O(N)
-</div>
+<table class="complexity">
+  <tr>
+    <td>Time</td>
+    <td>Union</td>
+    <td>O(a(n)) ~ O(1)</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>Find</td>
+    <td>O(a(n)) ~ O(1)</td>
+  </tr>
+  <tr>
+    <td>Space</td>
+    <td></td>
+    <td>O(n)</td>
+  </tr>
+</table>

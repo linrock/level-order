@@ -7,10 +7,21 @@
 
 <h3>Max heap</h3>
 <div>
-  All parent nodes are larger than both of their child nodes.
+  The values of all parent nodes in the tree are larger than both
+  of their child nodes.
 </div>
 
 <h3>Min heap</h3>
 <div>
-  All parent nodes are smaller than both of their child nodes.
+  The values of all parent nodes in the tree are smaller than both
+  of their child nodes.
 </div>
+
+<h3>Building a heap</h3>
+<div>
+  Floyd's algorithm can create a heap-ordered array in O(n) time.
+  We can say that to heapify an array is to arrange its elements in
+  a heap-ordered way.
+</div>
+<%= code_block "app/code/data_structures/binary_heap/heapify.rb" %>
+<%= code_block "app/code/data_structures/binary_heap/sift_down.rb" %>

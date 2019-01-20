@@ -22,6 +22,10 @@ a {
   &.top-margin {
     margin-top: 80px;
   }
+
+  &.bottom-margin {
+    margin-bottom: 80px;
+  }
 }
 
 header.main {
@@ -54,7 +58,7 @@ pre {
 table.complexity {
   margin: 10px 0;
 
-  td:first-child {
+  td {
     padding-right: 15px;
   }
 }

@@ -20,7 +20,7 @@
     </header>
 
     <% if controller.inside_container? %>
-      <div class="container"><%= yield %></div>
+      <div class="container bottom-margin"><%= yield %></div>
     <% else %>
       <%= yield %>
     <% end %>
