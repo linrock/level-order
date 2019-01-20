@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "/binary-tree" => "data_structures#binary_tree"
   get "/binary-search-tree" => "data_structures#binary_search_tree"
   get "/binary-heap" => "data_structures#binary_heap"
+  get "/linked-list" => "data_structures#linked_list"
 
   # problems
   get "/problems/:problem" => "problems#show"
