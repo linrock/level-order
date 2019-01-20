@@ -19,6 +19,10 @@
       </div>
     </header>
 
-    <%= yield %>
+    <% if controller.inside_container? %>
+      <div class="container"><%= yield %></div>
+    <% else %>
+      <%= yield %>
+    <% end %>
   </body>
 </html>

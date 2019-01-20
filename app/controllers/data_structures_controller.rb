@@ -1,0 +1,2 @@
+class DataStructuresController < ApplicationController
+end

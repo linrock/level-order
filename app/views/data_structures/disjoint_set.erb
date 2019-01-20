@@ -4,12 +4,13 @@
   Tracks elements grouped into disjoint (non-overlapping) sets.
 </div>
 
+<%= code_block "app/code/data_structures/disjoint_set/s1.rb" %>
 <div>
   Time complexity:
-  Union   O(N)
-  Find    O(N)
+  Union   O(n)
+  Find    O(n)
 
-  Space complexity: O(N)
+  Space complexity: O(n)
 </div>
 
 <div>
@@ -17,10 +18,11 @@
   of the union and find operations are reduced to constant time.
 </div>
 
+<%= code_block "app/code/data_structures/disjoint_set/s2.rb" %>
 <div>
   Time complexity:
-  Union   O(1)
-  Find    O(1)
+  Union   O(a(n)) ~ O(1)
+  Find    O(a(n)) ~ O(1)
 
   Space complexity: O(N)
 </div>

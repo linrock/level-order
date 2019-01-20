@@ -1,19 +1,24 @@
 class PagesController < ApplicationController
   def data_structures
-    @data_structures = Dir.glob("app/views/data_structures/*.erb").map do |p|
-      p
-        .gsub(/app\/views\/data_structures\//, '')
-        .gsub(/\.erb/, '')
-        .gsub(/_/, '-')
-    end
+    prefix = "app/views/data_structures/"
+    @data_structures = directory_templates(prefix)
   end
 
   def algorithms
-    @algorithms = Dir.glob("app/views/algorithms/*.erb").map do |p|
-      p
-        .gsub(/app\/views\/algorithms\//, '')
-        .gsub(/\.erb/, '')
-        .gsub(/_/, '-')
+    prefix = "app/views/algorithms/"
+    @algorithms = directory_templates(prefix)
+  end
+
+  def problems
+    prefix = "app/views/problems/"
+    @problems = directory_templates(prefix)
+  end
+
+  private
+
+  def directory_templates(prefix)
+    Dir.glob("#{prefix}*.erb").map do |p|
+      p.gsub(/#{prefix}/, '').gsub(/\.erb/, '').gsub(/_/, '-')
     end
   end
 end
