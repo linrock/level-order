@@ -1,49 +1,64 @@
 <h1>Disjoint set</h1>
 
-<div>
-  Tracks elements grouped into disjoint (non-overlapping) sets.
-</div>
+<section class="margin-bottom">
+  <div class="explanation">
+    Tracks elements grouped into disjoint (non-overlapping) sets.
+    A simple implementation doesn't require much code, but suffers
+    slow worst-case performance for its methods.
+  </div>
 
-<%= code_block "app/code/data_structures/disjoint_set/s1.rb" %>
-<table class="complexity">
-  <tr>
-    <td>Time</td>
-    <td>Union</td>
-    <td>O(n)</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Find</td>
-    <td>O(n)</td>
-  </tr>
-  <tr>
-    <td>Space</td>
-    <td></td>
-    <td>O(n)</td>
-  </tr>
-</table>
+  <%= code_block "app/code/data_structures/disjoint_set/s1.rb" %>
+  <table class="complexity">
+    <tr>
+      <td>Time</td>
+      <td>Union</td>
+      <td>O(n)</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Find</td>
+      <td>O(n)</td>
+    </tr>
+    <tr>
+      <td>Space</td>
+      <td></td>
+      <td>O(n)</td>
+    </tr>
+  </table>
+</section>
 
-<div>
-  By using path compression and union by rank, the time complexity
-  of the union and find operations are effectively reduced to constant
-  time.
-</div>
+<section class="margin-bottom">
+  <div>
+    With some optimization, the time complexity of the union and
+    find operations are effectively reduced to constant time.
 
-<%= code_block "app/code/data_structures/disjoint_set/s2.rb" %>
-<table class="complexity">
-  <tr>
-    <td>Time</td>
-    <td>Union</td>
-    <td>O(a(n)) ~ O(1)</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Find</td>
-    <td>O(a(n)) ~ O(1)</td>
-  </tr>
-  <tr>
-    <td>Space</td>
-    <td></td>
-    <td>O(n)</td>
-  </tr>
-</table>
+    <ul>
+      <li>
+        Path compression - saving the results of find calls while
+        finding the parent of an element.
+      </li>
+      <li>
+        Union by rank - when union'ing two sets, minimizing the height
+        of the tree by choosing the shortest tree as the parent.
+      </li>
+  </div>
+
+  <%= code_block "app/code/data_structures/disjoint_set/s2.rb" %>
+  <table class="complexity">
+    <tr>
+      <td>Time</td>
+      <td>Union</td>
+      <td>O(α(n)) ~ O(1)</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Find</td>
+      <td>O(α(n)) ~ O(1)</td>
+    </tr>
+    <tr>
+      <td>Space</td>
+      <td></td>
+      <td>O(n)</td>
+    </tr>
+  </table>
+</section>

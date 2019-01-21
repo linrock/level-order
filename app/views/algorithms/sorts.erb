@@ -1,36 +1,44 @@
 <div class="container">
   <h1>Sorting algorithms</h1>
 
-  <h2>Bubble sort</h2>
-  <pre><%= code_block("app/code/sorts/bubble_sort.rb") %></pre>
-  <div>
-    Time complexity
-    Best O(n)
-    Worst O(n^2)
-    Average O(n^2)
-  </div>
-  <div>
-    Space complexity O(1)
-  </div>
+  <section>
+    <h2>Comparison sorts</h2>
 
-  <h2>Selection sort</h2>
-  <%= code_block("app/code/sorts/selection_sort.rb") %>
+    <h3>Bubble sort</h3>
+    <%= code_block("app/code/sorts/bubble_sort.rb") %>
+    <div>
+      Time complexity
+      Best O(n)
+      Worst O(n<sup>2</sup>)
+      Average O(n<sup>2</sup>)
+    </div>
+    <div>
+      Space complexity O(1)
+    </div>
 
-  <h2>Insertion sort</h2>
-  <%= code_block("app/code/sorts/insertion_sort.rb") %>
+    <h3>Insertion sort</h3>
+    <%= code_block("app/code/sorts/insertion_sort.rb") %>
 
-  <h2>Merge sort</h2>
-  <%= code_block("app/code/sorts/merge_sort.rb") %>
+    <h3>Selection sort</h3>
+    <%= code_block("app/code/sorts/selection_sort.rb") %>
 
-  <h2>Quick sort</h2>
-  <%= code_block("app/code/sorts/quick_sort.rb") %>
+    <h3>Heap sort</h3>
+    <%= code_block("app/code/sorts/heap_sort.rb") %>
+  </section>
 
-  <h2>Counting sort</h2>
-  <%= code_block("app/code/sorts/counting_sort.rb") %>
+  <section>
+    <h2>Non-comparison sorts</h2>
 
-  <h2>Radix sort</h2>
-  <%= code_block("app/code/sorts/radix_sort.rb") %>
+    <h3>Merge sort</h3>
+    <%= code_block("app/code/sorts/merge_sort.rb") %>
 
-  <h2>Heap sort</h2>
-  <%= code_block("app/code/sorts/heap_sort.rb") %>
+    <h3>Quick sort</h3>
+    <%= code_block("app/code/sorts/quick_sort.rb") %>
+
+    <h3>Counting sort</h3>
+    <%= code_block("app/code/sorts/counting_sort.rb") %>
+
+    <h3>Radix sort</h3>
+    <%= code_block("app/code/sorts/radix_sort.rb") %>
+  </section>
 </div>
