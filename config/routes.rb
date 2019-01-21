@@ -9,16 +9,18 @@ Rails.application.routes.draw do
   get "/problems" => "pages#problems"
 
   # algorithms
-  get "/sorts" => "algorithms#sorts"
-  get "/binary-search" => "algorithms#binary_search"
-  get "/binary-tree-traversal" => "algorithms#binary_tree_traversal"
+  prefix = "app/views/algorithms/"
+  Dir.glob("#{prefix}*.erb").each do |filename|
+    ds = filename.gsub(/#{prefix}/, '').gsub(/\.erb/, '')
+    get "/#{ds.gsub(/_/, '-')}" => "algorithms##{ds}"
+  end
 
   # data structures
-  get "/disjoint-set" => "data_structures#disjoint_set"
-  get "/binary-tree" => "data_structures#binary_tree"
-  get "/binary-search-tree" => "data_structures#binary_search_tree"
-  get "/binary-heap" => "data_structures#binary_heap"
-  get "/linked-list" => "data_structures#linked_list"
+  prefix = "app/views/data_structures/"
+  Dir.glob("#{prefix}*.erb").each do |filename|
+    ds = filename.gsub(/#{prefix}/, '').gsub(/\.erb/, '')
+    get "/#{ds.gsub(/_/, '-')}" => "data_structures##{ds}"
+  end
 
   # problems
   get "/problems/:problem" => "problems#show"

@@ -7,8 +7,12 @@
 <section class="solutions">
   <h2>Solution 1: Brute force</h2>
   <div class="explanation">
-    For each possible subsequence, check if it's the longest.
+    For each possible subsequence, check if it's an increasing subsequence.
+    If it is, save its length if it's longer than the previous longest subsequence.
+    When generating a subsequence, consider that every element in the original
+    sequence can either be in the sequence or not in the sequence.
   </div>
+  <%= code_block "app/code/problems/longest_increasing_subsequence/s1.rb" %>
   <table class="complexity">
     <tr><td>Time</td><td>O(2<sup>n</sup>)</td></tr>
     <tr><td>Space</td><td>O(1)</td></tr>

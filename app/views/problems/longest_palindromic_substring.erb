@@ -12,89 +12,124 @@
 </div>
 
 <div>
-  DEEED
+  Longest palindrome DEEED
 </div>
 
-<div class="solutions">
-  <table class="complexities">
-    <tr>
-      <td>Solution</td>
-      <td>Time</td>
-      <td>Space</td>
-    </tr>
-    <tr>
-      <td>Bruce force</td>
-      <td>O(n<sup>3</sup>)</td>
-      <td>O(1)</td>
-    </tr>
-    <tr>
-      <td>Dynamic programming</td>
-      <td>O(n<sup>2</sup>)</td>
-      <td>O(n<sup>2</sup>)</td>
-    </tr>
-    <tr>
-      <td>Central expansion</td>
-      <td>O(n<sup>2</sup>)</td>
-      <td>O(1)</td>
-    </tr>
-    <tr>
-      <td>Manacher's algorithm</td>
-      <td>O(n)</td>
-      <td>O(1)</td>
-    </tr>
-  </table>
-</div>
+<table class="solutions">
+  <tr>
+    <th>Solution</th>
+    <th>Time</th>
+    <th>Space</th>
+  </tr>
+  <tr>
+    <td>Bruce force</td>
+    <td>O(n<sup>3</sup>)</td>
+    <td>O(1)</td>
+  </tr>
+  <tr>
+    <td>Dynamic programming</td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>O(n<sup>2</sup>)</td>
+  </tr>
+  <tr>
+    <td>Central expansion</td>
+    <td>O(n<sup>2</sup>)</td>
+    <td>O(1)</td>
+  </tr>
+  <tr>
+    <td>Manacher's algorithm</td>
+    <td>O(n)</td>
+    <td>O(1)</td>
+  </tr>
+</table>
 
 <section class="solutions">
-  <h2>Solution 1: Brute force</h2>
-  <div class="explanation">
-    For all n<sup>2</sup> possible substrings, check if it's a palindrome.
-    If it's a palindrome and it's longer than the currently-longest
-    palindrome, replace the currently-longest palindrome.
-    Each of n<sup>2</sup> checks takes O(n) time, for a time complexity
-    of O(n<sup>3</sup>).
+  <div class="solution">
+    <h2>Solution 1: Brute force</h2>
+    <div class="explanation">
+      For all possible substrings, check if it's a palindrome.
+      If it's a palindrome and it's longer than the currently-longest
+      palindrome, save the start and end indices of the substring.
+    </div>
+    <%= code_block "app/code/problems/longest_palindromic_substring/s1.rb" %>
+    <table class="complexity">
+      <tr>
+        <td>Time</td>
+        <td>O(n<sup>3</sup>)</td>
+        <td>Each of n<sup>2</sup> substrings takes O(n) time to check</td>
+      </tr>
+      <tr>
+        <td>Space</td>
+        <td>O(1)</td>
+        <td>Storing the start and end indices of the longest palindrome</td>
+      </tr>
+    </table>
   </div>
-  <%= code_block "app/code/problems/longest_palindromic_substring/s1.rb" %>
-  <table class="complexity">
-    <tr><td>Time</td><td>O(n<sup>3</sup>)</td></tr>
-    <tr><td>Space</td><td>O(1)</td></tr>
-  </table>
 
-  <h2>Solution 2: Dynamic programming</h2>
-  <div class="explanation">
-    Let is_palindrome[i][j] represent whether a substring of S starting at
-    i and ending at j is a palindrome.
+  <div class="solution">
+    <h2>Solution 2: Dynamic programming</h2>
+    <div class="explanation">
+      This improves on the brute force solution by checking whether a
+      substring is a palindrome in constant time instead of linear time.
+      It saves time at the expense of space by storing whether a substring
+      is a palindrome and referencing these values for longer substrings.
+      <br><br>
+      Let each value of is_pal[i][j] be
+      <ul>
+        <li>true when a substring S<sub>i,j</sub> is a palindrome</li>
+        <li>false otherwise</li>
+      </ul>
+    </div>
+    <%= code_block "app/code/problems/longest_palindromic_substring/s2.rb" %>
+    <table class="complexity">
+      <tr>
+        <td>Time</td>
+        <td>O(n<sup>2</sup>)</td>
+        <td>Each of n<sup>2</sup> substrings takes O(1) time to check</td>
+      </tr>
+      <tr>
+        <td>Space</td>
+        <td>O(n<sup>2</sup>)</td>
+        <td>Storing if a substring is a palindrome for n<sup>2</sup> substrings</td>
+      </tr>
+    </table>
   </div>
-  <%= code_block "app/code/problems/longest_palindromic_substring/s2.rb" %>
-  <table class="complexity">
-    <tr><td>Time</td><td>O(n<sup>2</sup>)</td></tr>
-    <tr><td>Space</td><td>O(n<sup>2</sup>)</td></tr>
-  </table>
 
-  <h2>Solution 3: Central expansion</h2>
-  <div class="explanation">
-    Iterate over all possible centers of palindromes.
-    A center can begin either
-    <ul>
-      <li>on a character for odd-length palindromes</li>
-      <li>between two characters for even-length palindromes</li>
-    </ul>
-    For each center, check if the first and last letter match.
-    Keep expanding outwards if they do.
-    Store the start and end string indices for the longest palindrome seen so far.
+  <div class="solution">
+    <h2>Solution 3: Central expansion</h2>
+    <div class="explanation">
+      Iterate over all possible centers of palindromes.
+      A center can begin either
+      <ul>
+        <li>on a character for odd-length palindromes</li>
+        <li>between two characters for even-length palindromes</li>
+      </ul>
+      For each center, check if the first and last letter match.
+      Keep expanding outwards if they do.
+      Store the start and end string indices for the longest palindrome seen so far.
+    </div>
+    <%= code_block "app/code/problems/longest_palindromic_substring/s3.rb" %>
+    <table class="complexity">
+      <tr>
+        <td>Time</td>
+        <td>O(n<sup>2</sup>)</td>
+        <td>Each of 2n - 1 centers takes O(n) time to check</td>
+      </tr>
+      <tr>
+        <td>Space</td><td>O(1)</td>
+        <td>Storing the start and end indices of the longest palindrome</td>
+      </tr>
+    </table>
   </div>
-  <%= code_block "app/code/problems/longest_palindromic_substring/s3.rb" %>
-  <table class="complexity">
-    <tr><td>Time</td><td>O(n<sup>2</sup>)</td></tr>
-    <tr><td>Space</td><td>O(1)</td></tr>
-  </table>
 
-  <h2>Solution 3: Manacher's algorithm</h2>
-  <div class="explanation">
-    This is an improvement over the central expansion algorithm.
+  <div class="solution">
+    <h2>Solution 3: Manacher's algorithm</h2>
+    <div class="explanation">
+      This is an improvement over the central expansion algorithm.
+    </div>
+    <table class="complexity">
+      <tr><td>Time</td><td>O(n)</td></tr>
+      <tr><td>Space</td><td>O(1)</td></tr>
+    </table>
   </div>
-  <table class="complexity">
-    <tr><td>Time</td><td>O(n)</td></tr>
-    <tr><td>Space</td><td>O(1)</td></tr>
-  </table>
 </section>

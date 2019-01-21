@@ -1,12 +1,12 @@
 class LinkedList
-  attr_reader :size
+  attr_reader :size, :head
 
   def initialize
     @size = 0
     @head = nil
   end
 
-  def add(value)
+  def insert(value)
     if @size == 0
       @head = ListNode.new(value)
     else
@@ -17,5 +17,13 @@ class LinkedList
       node.next = ListNode.new(value)
     end
     @size += 1
+  end
+
+  def find(value)
+    node = @head
+    while node
+      return node if node.value == value
+      node = node.next
+    end
   end
 end

@@ -17,8 +17,8 @@ class PagesController < ApplicationController
   private
 
   def directory_templates(prefix)
-    Dir.glob("#{prefix}*.erb").map do |p|
-      p.gsub(/#{prefix}/, '').gsub(/\.erb/, '').gsub(/_/, '-')
+    Dir.glob("#{prefix}*.erb").map do |filename|
+      filename.gsub(/#{prefix}/, '').gsub(/\.erb/, '').gsub(/_/, '-')
     end
   end
 end
