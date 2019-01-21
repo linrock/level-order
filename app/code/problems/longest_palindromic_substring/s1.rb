@@ -1,13 +1,13 @@
 def longest_palindromic_substring(s)
   n = s.length
-  longest = 1
+  i_start = i_end = 0
   (0 .. (n - 1)).each do |i|
     ((i + 1) .. (n - 1)).each do |j|
-      substring = s[i .. j]
-      if substring == substring.reverse
-        longest = [longest, j - i + 1].max
+      substr = s[i .. j]
+      if substr == substr.reverse && k - j > i_end - i_start
+        i_start, i_end = j, k
       end
     end
   end
-  longest
+  s[i_start .. i_end]
 end
