@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Dijkstra's algorithm</h1>
+
+  <div>
+    Finds the shortest path from one vertex in a graph to another.
+    Doesn't work on graph with negative edge weights. For that,
+    you'll want to try the Bellman-Ford algorithm.
+  </div>
+
+  <section class="margin-bottom">
+    <%= code_block "app/code/algorithms/dijkstras_algorithm/s1.rb" %>
+    <table class="complexity">
+      <tr><td>Time</td><td>O(|V|<sup>2</sup> + |E|)</td></tr>
+      <tr><td>Space</td><td>O(|V|)</td></tr>
+    </table>
+  </section>
+
+  <section class="margin-bottom">
+    <div>
+      The runtime performance can be improved by using a min-heap to
+      efficiently find the next vertex to visit during each iteration
+      of the outer loop.
+    </div>
+    <%= code_block "app/code/algorithms/dijkstras_algorithm/s2.rb" %>
+    <table class="complexity">
+      <tr><td>Time</td><td>O((|E| + |V|) log |V|)</td></tr>
+      <tr><td>Space</td><td>O(|V|)</td></tr>
+    </table>
+  </section>
+</div>
