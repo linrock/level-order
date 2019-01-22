@@ -1,3 +1,5 @@
+require 'list_node'
+
 class Stack
   attr_reader :size
 

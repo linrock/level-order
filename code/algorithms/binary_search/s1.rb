@@ -1,4 +1,4 @@
-def binary_search(values, value)
+def binary_search(values, target)
   low = 0
   high = values.length - 1
   while low <= high
