@@ -17,5 +17,7 @@ hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('ruby', ruby);
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('pre').forEach(code => hljs.highlightBlock(code));
+  document.querySelectorAll('pre.hljs').forEach(code => {
+    hljs.highlightBlock(code)
+  });
 });

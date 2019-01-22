@@ -1,6 +1,7 @@
 /*
  *= require_tree .
  *= require_self
+ *= require pygments
  */
 
 body {
@@ -69,6 +70,10 @@ table.solutions {
       color: #0f9bff;
     }
   }
+}
+
+section.margin-bottom {
+  margin-bottom: 60px;
 }
 
 // section for solutions and explanations

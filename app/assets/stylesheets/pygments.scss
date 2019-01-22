@@ -1,0 +1,16 @@
+// based off of seoul256.vim colors
+
+.highlight { padding: 20px; line-height: 17px; }
+.highlight { color: rgb(208,208,208); background: rgb(38,38,38); }
+.highlight .k { color: rgb(205,138,102); } // def, do, if, end
+.highlight .nb { color: rgb(205,138,102); } // require
+.highlight .s1 { color: rgb(143,174,174); } // string literals
+// .highlight .k { color: rgb(134,136,172); } 
+// .highlight .k { color: rgb(142,175,211); }
+.highlight .nf { color: rgb(215,214,179); }
+// .highlight .kp { color: rgb(134,136,172); }
+.highlight .kp { color: rgb(114,173,174); }
+.highlight .p { color: rgb(216,214,145); }
+.highlight .no { color: rgb(210,176,107); }
+.highlight .o { color: rgb(216,214,145); }  // operators
+.highlight .mi { color: rgb(250,216,146); } // numeric literals
