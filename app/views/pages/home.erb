@@ -6,24 +6,38 @@
     and links to great resources.
   </div>
 
-  <div>
+  <section class="margin-bottom">
     <a href="/algorithms">Algorithms</a>
     <ul>
-      <li><a href="/binary-search">Binary search</a>
-      <li><a href="/binary-tree-traversal">Binary tree traversal</a>
-      <li><a href="/sorts">Sorts</a>
+      <% @algorithms.each do |algo| %>
+        <li>
+          <a href="/<%= algo %>">
+           <%= algo.gsub(/-/, ' ').capitalize %>
+          </a>
+        </li>
+      <% end %>
     </ul>
+
     <a href="/data-structures">Data structures</a>
     <ul>
-      <li><a href="/binary-heap">Binary heap</a>
-      <li><a href="/disjoint-set">Disjoint set</a>
-      <li><a href="/linked-list">Linked list</a>
+      <% @data_structures.each do |ds| %>
+        <li>
+          <a href="/<%= ds %>">
+            <%= ds.gsub(/-/, ' ').capitalize %>
+          </a>
+        </li>
+      <% end %>
     </ul>
+
     <a href="/problems">Problems</a>
     <ul>
-      <li><a href="/problems/edit-distance">Edit distance</a>
-      <li><a href="/problems/top-k-frequent-words">Top k frequent words</a>
-      <li><a href="/problems/longest-increasing-subsequence">Longest increasing subsequence</a>
+      <% @problems.each do |problem| %>
+        <li>
+          <a href="/problems/<%= problem %>">
+            <%= problem.gsub(/-/, ' ').capitalize %>
+          </a>
+        </li>
+      <% end %>
     </ul>
-  </div>
+  </section>
 </div>
