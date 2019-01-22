@@ -1,9 +1,13 @@
 <div class="container">
   <h1>Problems</h1>
 
-  <% @problems.each do |problem| %>
-    <a href="/problems/<%= problem %>">
-      <%= problem.gsub(/-/, ' ').capitalize %>
-    </a>
-  <% end %>
+  <ul>
+    <% @problems.each do |problem| %>
+      <li>
+        <a href="/problems/<%= problem %>">
+          <%= problem.gsub(/-/, ' ').capitalize %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
 </div>

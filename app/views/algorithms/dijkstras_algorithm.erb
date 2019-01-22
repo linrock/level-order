@@ -1,10 +1,11 @@
 <div class="container">
   <h1>Dijkstra's algorithm</h1>
+  <h4>Graph traversal</h4>
 
   <div>
     Finds the shortest path from one vertex in a graph to another.
     Doesn't work on graph with negative edge weights. For that,
-    you'll want to try the Bellman-Ford algorithm.
+    try the <%= link_to "Bellman-Ford algorithm", "bellman-ford-algorithm" %>.
   </div>
 
   <section class="margin-bottom">
@@ -17,9 +18,11 @@
 
   <section class="margin-bottom">
     <div>
-      The runtime performance can be improved by using a min-heap to
-      efficiently find the next vertex to visit during each iteration
+      The runtime performance can be improved by using a priority queue
+      to efficiently find the next vertex to visit during each iteration
       of the outer loop.
+      <br><br>
+      One priority queue implementation we can use is a binary min-heap.
     </div>
     <%= rb_code "code/algorithms/dijkstras_algorithm/s2.rb" %>
     <table class="complexity">

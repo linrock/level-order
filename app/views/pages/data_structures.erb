@@ -1,9 +1,13 @@
 <div class="container">
   <h1>Data structures</h1>
 
-  <% @data_structures.each do |ds| %>
-    <a href="/<%= ds %>">
-      <%= ds.gsub(/-/, ' ').capitalize %>
-    </a>
-  <% end %>
+  <ul>
+    <% @data_structures.each do |ds| %>
+      <li>
+        <a href="/<%= ds %>">
+          <%= ds.gsub(/-/, ' ').capitalize %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
 </div>
