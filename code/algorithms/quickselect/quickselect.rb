@@ -14,7 +14,7 @@ def partition(values, low, high)
   i_piv = low + ((high - low) * rand).floor
   pivot = values[i_piv]
   values[high], values[i_piv] = values[i_piv], values[high]
-  i = 0
+  i = low
   (low .. high).each do |j|
     if values[j] < pivot
       values[i], values[j] = values[j], values[i]
