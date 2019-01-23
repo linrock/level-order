@@ -8,7 +8,7 @@
 
 <%= solutions_table do %>
   Bellman-Ford algorithm   O(|V||E|)  O(|V|)
-  Breadth-first search     O(|V||E|)  O(|V|)
+  Breadth-first search     O(|V||E|)  O(|V| + |E|)
   Depth-first search       O(|V||E|)  O(|V|)
 <% end %>
 
@@ -26,5 +26,16 @@
   </section>
 
   <section class="solution">
+    <h2>Solution 2: Breadth-first search</h2>
+    <%= rb_code "code/problems/network_delay_time/s2.rb" %>
   </section>
+
+  <section class="solution">
+    <h2>Solution 3: Depth-first search</h2>
+    <%= rb_code "code/problems/network_delay_time/s3.rb" %>
+  </section>
+</section>
+
+<section class="resources">
+  <a href="https://leetcode.com/problems/network-delay-time/">Leetcode problem</a>
 </section>

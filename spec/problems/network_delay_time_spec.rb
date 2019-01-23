@@ -15,4 +15,12 @@ RSpec.describe 'network delay time problem' do
       expect(network_delay_time(edges, n, k)).to eq(answer)
     end
   end
+
+  context 'breadth-first search' do
+    before { require 'network_delay_time/s2.rb' }
+
+    it 'finds the right time' do
+      expect(network_delay_time(edges, n, k)).to eq(answer)
+    end
+  end
 end
