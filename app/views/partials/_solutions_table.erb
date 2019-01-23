@@ -1,0 +1,19 @@
+<% rows = yield.strip.split(/\n/).map do |row|
+     row.strip.split(/\s{2,}/)
+   end
+%>
+
+<table class="solutions">
+  <tr>
+    <th>Solution</th>
+    <th>Time</th>
+    <th>Space</th>
+  </tr>
+  <% rows.each do |row| %>
+    <tr>
+      <% row.each do |cell| %>
+        <td><%= cell.html_safe %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

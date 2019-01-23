@@ -15,33 +15,12 @@
   Longest palindrome DEEED
 </div>
 
-<table class="solutions">
-  <tr>
-    <th>Solution</th>
-    <th>Time</th>
-    <th>Space</th>
-  </tr>
-  <tr>
-    <td>Bruce force</td>
-    <td>O(n<sup>3</sup>)</td>
-    <td>O(1)</td>
-  </tr>
-  <tr>
-    <td>Dynamic programming</td>
-    <td>O(n<sup>2</sup>)</td>
-    <td>O(n<sup>2</sup>)</td>
-  </tr>
-  <tr>
-    <td>Central expansion</td>
-    <td>O(n<sup>2</sup>)</td>
-    <td>O(1)</td>
-  </tr>
-  <tr>
-    <td>Manacher's algorithm</td>
-    <td>O(n)</td>
-    <td>O(1)</td>
-  </tr>
-</table>
+<%= solutions_table do %>
+  Brute force            O(n<sup>3</sup>)   O(1)
+  Dynamic programming    O(n<sup>2</sup>)   O(n<sup>2</sup>)
+  Central expansion      O(n<sup>2</sup>)   O(1)
+  Manacher's algorithm   O(n)               O(1)
+<% end %>
 
 <section class="solutions">
   <div class="solution">

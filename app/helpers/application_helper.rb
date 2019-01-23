@@ -14,6 +14,14 @@ module ApplicationHelper
     %(<pre class="highlight">#{code}</pre>).html_safe
   end
 
+  # list of solutions and time/space complexities for a problem
+  def solutions_table(&block)
+    render layout: 'partials/solutions_table' do
+      block.call
+    end
+  end
+
+  # time/space for each solution to a problem
   def complexity_table(&block)
     render layout: 'partials/complexity_table' do
       block.call
