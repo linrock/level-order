@@ -6,15 +6,8 @@
   color: rgb(208,208,208);
   background: rgb(38,38,38);
 
-  .k {
-    color: rgb(205,138,102); // def, do, if, end
-
-    // &:first-of-type, &:last-child { // class/function definitions
-      // color: rgb(134,136,172);
-      // color: rgb(142,175,211);
-      // color: rgb(55,134,171);
-    // }
-  }
+  // pygments parser classes
+  .k { color: rgb(205,138,102);  } // def, do, if, end
   .ss { color: rgb(114,173,174); } // symbols
   .nb { color: rgb(205,138,102); } // require
   .s1 { color: rgb(143,174,174); } // string literals
@@ -27,4 +20,13 @@
   .nc { color: rgb(210,176,107); } // class definition
   .o { color: rgb(216,214,145); }  // operators
   .mi { color: rgb(250,216,146); } // numeric literals
+
+  // custom classes
+  .k.definition { color: rgb(55,134,171); } // class/def
+    // &:first-of-type, &:last-child {
+      // color: rgb(134,136,172);
+      // color: rgb(142,175,211);
+    // }
+  .k.flow { color: rgb(143,173,138); }  // break, return, next
+  .kp.loop { color: rgb(205,138,102); } // loop
 }
