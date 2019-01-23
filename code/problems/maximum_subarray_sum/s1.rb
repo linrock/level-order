@@ -5,7 +5,7 @@ def maximum_subarray_sum(numbers)
     sum = numbers[i]
     max_sum = [max_sum, sum].max
     (i+1 .. n-1).each do |j|
-      sum += numbers[i]
+      sum += numbers[j]
       max_sum = [max_sum, sum].max
     end
   end

@@ -2,7 +2,7 @@ def maximum_subarray_sum(numbers)
   n = numbers.length
   max_sum = sum = numbers[0]
   (1 .. n-1).each do |i|
-    if sum + numbers[i] > sum
+    if sum + numbers[i] > numbers[i]
       sum += numbers[i]
     else
       sum = numbers[i]
