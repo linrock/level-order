@@ -1,0 +1,53 @@
+<h1>Kth largest element in an array</h1>
+
+<div>Find the kth largest element in an array of numbers</div>
+<br>
+<div>[1, 8, 6, 10, 2]</div>
+<br>
+<div>When k = 1, the 1st largest element is 10</div>
+<div>When k = 3, the 3rd largest element is 6</div>
+
+<table class="solutions">
+  <tr>
+    <th>Solution</th>
+    <th>Time</th>
+    <th>Space</th>
+  </tr>
+  <tr>
+    <td>Sort</td>
+    <td>O(n log n)</td>
+    <td>O(1)</td>
+  </tr>
+  <tr>
+    <td>Min-heap</td>
+    <td>O(n + k log n)</td>
+    <td>O(n)</td>
+  </tr>
+  <tr>
+    <td>Max-heap</td>
+    <td>O(n log k)</td>
+    <td>O(k)</td>
+  </tr>
+  <tr>
+    <td>Quick select</td>
+    <td>O(n) to O(n<sup>2</sup>)</td>
+    <td>O(1)</td>
+  </tr>
+  <tr>
+    <td>Median of medians</td>
+    <td>O(n)</td>
+    <td>O(1)</td>
+  </tr>
+</table>
+
+<section class="solution">
+  Quick select
+</section>
+
+<section class="solution">
+  Median of medians
+</section>
+
+<section class="resources">
+  <a href="https://leetcode.com/problems/kth-largest-element-in-an-array/">Leetcode problem</a>
+</section>

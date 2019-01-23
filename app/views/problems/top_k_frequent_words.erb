@@ -6,12 +6,41 @@
   the one that's alphabetically the highest.
 </div>
 
-<section class="solutions">
-  <h2>Solution 1: Sorting</h2>
-  <div>Time: O(n log n)</div>
-  <div>Space: O(n)</div>
+<article class="solutions">
+  <section class="solution">
+    <h2>Solution 1: Sorting</h2>
+    <div class="explanation">
+      We can iterate over the sequence of words, keeping track
+      of the number of of times a word is seen. Then sort the
+      counts by the number of times a word is seen and take the
+      top k. Worst case, every word shows up once.
+    </div>
+    <%= rb_code "code/problems/top_k_frequent_words/s1.rb" %>
+    <div>Time: O(n log n)</div>
+    <div>Space: O(n)</div>
+  </section>
 
-  <h2>Solution 2: Max-heap</h2>
-  <div>Time: O(n log k)</div>
-  <div>Space: O(n)</div>
+  <section class="solution">
+    <h2>Solution 2: Max-heap</h2>
+    <div class="explanation">
+      Similar to solution 1, we'll keep track of the number of
+      times a word is seen. However, we'll use a max heap with a size
+      limit of k to efficiently keep track of the k-most-frequent words.
+      When all the elements are inserted, the items in the heap are the
+      k-most-frequent words.
+      <br>
+      <ul>
+        <li>Worst case, we'll insert n words into the heap.</li>
+        <li>Every insert into the max heap takes O(log k) time.</li>
+        <li>Therefore we'd expect the runtime to be O(n log k).</li>
+      </ul>
+    </div>
+    <%= rb_code "code/problems/top_k_frequent_words/s2.rb" %>
+    <div>Time: O(n log k)</div>
+    <div>Space: O(n)</div>
+  </section>
+</article>
+
+<section class="references">
+
 </section>
