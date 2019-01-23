@@ -33,27 +33,20 @@
       palindrome, save the start and end indices of the substring.
     </div>
     <%= rb_code "code/problems/longest_palindromic_substring/s1.rb" %>
-    <table class="complexity">
-      <tr>
-        <td>Time</td>
-        <td>O(n<sup>3</sup>)</td>
-        <td>Each of n<sup>2</sup> substrings takes O(n) time to check</td>
-      </tr>
-      <tr>
-        <td>Space</td>
-        <td>O(1)</td>
-        <td>Storing the start and end indices of the longest palindrome</td>
-      </tr>
-    </table>
+    <%= complexity_table do %>
+      Time   O(n^3)  Each of n^2 substrings takes O(n) time to check
+      Space  O(1)    The start/end indices of the longest palindrome
+    <% end %>
   </div>
 
   <div class="solution">
     <h2>Solution 2: Dynamic programming</h2>
     <div class="explanation">
-      This improves on the brute force solution by checking whether a
-      substring is a palindrome in constant time instead of linear time.
-      It saves time at the expense of space by storing whether a substring
-      is a palindrome and referencing these values for longer substrings.
+      This improves the runtime of the brute force solution by checking
+      whether a substring is a palindrome in constant time instead of
+      linear time.  It saves time at the expense of space by storing
+      whether a substring is a palindrome and referencing these values
+      for longer substrings.
       <br><br>
       Let each value of is_pal[i][j] be
       <ul>
@@ -62,18 +55,10 @@
       </ul>
     </div>
     <%= rb_code "code/problems/longest_palindromic_substring/s2.rb" %>
-    <table class="complexity">
-      <tr>
-        <td>Time</td>
-        <td>O(n<sup>2</sup>)</td>
-        <td>Each of n<sup>2</sup> substrings takes O(1) time to check</td>
-      </tr>
-      <tr>
-        <td>Space</td>
-        <td>O(n<sup>2</sup>)</td>
-        <td>Storing if a substring is a palindrome for n<sup>2</sup> substrings</td>
-      </tr>
-    </table>
+    <%= complexity_table do %>
+      Time   O(n^2)  Each of n^2 substrings takes O(1) time to check
+      Space  O(n^2)  2D boolean array for n^2 substrings
+    <% end %>
   </div>
 
   <div class="solution">
@@ -90,17 +75,10 @@
       Store the start and end string indices for the longest palindrome seen so far.
     </div>
     <%= rb_code "code/problems/longest_palindromic_substring/s3.rb" %>
-    <table class="complexity">
-      <tr>
-        <td>Time</td>
-        <td>O(n<sup>2</sup>)</td>
-        <td>Each of 2n - 1 centers takes O(n) time to check</td>
-      </tr>
-      <tr>
-        <td>Space</td><td>O(1)</td>
-        <td>Storing the start and end indices of the longest palindrome</td>
-      </tr>
-    </table>
+    <%= complexity_table do %>
+      Time   O(n^2)  Each of 2n - 1 centers takes O(n) time to check
+      Space  O(1)    The start/ end indices of the longest palindrome
+    <% end %>
   </div>
 
   <div class="solution">
@@ -108,9 +86,9 @@
     <div class="explanation">
       This is an improvement over the central expansion algorithm.
     </div>
-    <table class="complexity">
-      <tr><td>Time</td><td>O(n)</td></tr>
-      <tr><td>Space</td><td>O(1)</td></tr>
-    </table>
+    <%= complexity_table do %>
+      Time   O(n)
+      Space  O(1)
+    <% end %>
   </div>
 </section>

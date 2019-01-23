@@ -1,0 +1,51 @@
+<h1>Fibonacci numbers</h1>
+
+<section class="problem">
+  A fibonacci number is the sum of the two previous numbers
+  in the sequence.
+
+  <div>
+    1 1 2 3 5
+  </div>
+</section>
+
+<%= solutions_table do %>
+  Recursion            O(2^n)   O(n)
+  Memoization          O(n)     O(n)
+  Dynamic programming  O(n)     O(n)
+  Iterative            O(n)     O(1)
+<% end %>
+
+<section class="solutions">
+  <section class="solution">
+    <h2>Solution 1: Recursion</h2>
+
+    <div class="explanation">
+    </div>
+    <%= rb_code "code/problems/fibonacci_number/s1.rb" %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 2: Memoization</h2>
+
+    <div class="explanation">
+    </div>
+    <%= rb_code "code/problems/fibonacci_number/s2.rb" %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 3: Dynamic programming</h2>
+
+    <div class="explanation">
+    </div>
+    <%= rb_code "code/problems/fibonacci_number/s3.rb" %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 4: Iterative</h2>
+
+    <div class="explanation">
+    </div>
+    <%= rb_code "code/problems/fibonacci_number/s4.rb" %>
+  </section>
+</section>

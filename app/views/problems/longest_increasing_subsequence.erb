@@ -13,22 +13,28 @@
     sequence can either be in the sequence or not in the sequence.
   </div>
   <%= rb_code "code/problems/longest_increasing_subsequence/s1.rb" %>
-  <table class="complexity">
-    <tr><td>Time</td><td>O(2<sup>n</sup>)</td></tr>
-    <tr><td>Space</td><td>O(1)</td></tr>
-  </table>
+  <%= complexity_table do %>
+    Time   O(2^n)
+    Space  O(1)
+  <% end %>
 
   <h2>Solution 2: Dynamic programming</h2>
-  <table class="complexity">
-    <tr><td>Time</td><td>O(n<sup>2</sup>)</td></tr>
-    <tr><td>Space</td><td>O(n)</td></tr>
-  </table>
+  <div class="explanation">
+    Iterate over all elements of the array.
+  </div>
+  <%= complexity_table do %>
+    Time   O(n^2)
+    Space  O(n)
+  <% end %>
 
   <h2>Solution 3: Patience sorting</h2>
-  <table class="complexity">
-    <tr><td>Time</td><td>O(n log n)</td></tr>
-    <tr><td>Space</td><td>O(n)</td></tr>
-  </table>
+  <div class="explanation">
+    Named after a card game.
+  </div>
+  <%= complexity_table do %>
+    Time   O(n log n)
+    Space  O(n)
+  <% end %>
 </section>
 
 <section class="resources">

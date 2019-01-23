@@ -1,5 +1,5 @@
 <% rows = yield.strip.split(/\n/).map do |row|
-    row.strip.split(/\s{2,}/)
+     row.strip.gsub(/\^(\d|[a-z])/, '<sup>\1</sup>').split(/\s{2,}/)
    end
 %>
 
@@ -7,7 +7,7 @@
   <% rows.each do |row| %>
     <tr>
       <td><%= row[0] %></td>
-      <td><%= row[1] %></td>
+      <td><%= row[1].html_safe %></td>
       <td><%= row[2] && row[2].html_safe %></td>
     </tr>
   <% end %>
