@@ -13,4 +13,10 @@ module ApplicationHelper
     code = formatter.format(lexer.lex(source))
     %(<pre class="highlight">#{code}</pre>).html_safe
   end
+
+  def complexity_table(&block)
+    render layout: 'partials/complexity_table' do
+      block.call
+    end
+  end
 end
