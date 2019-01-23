@@ -1,53 +1,82 @@
 <h1>Kth largest element in an array</h1>
 
-<div>Find the kth largest element in an array of numbers</div>
-<br>
-<div>[1, 8, 6, 10, 2]</div>
-<br>
-<div>When k = 1, the 1st largest element is 10</div>
-<div>When k = 3, the 3rd largest element is 6</div>
-
-<table class="solutions">
-  <tr>
-    <th>Solution</th>
-    <th>Time</th>
-    <th>Space</th>
-  </tr>
-  <tr>
-    <td>Sort</td>
-    <td>O(n log n)</td>
-    <td>O(1)</td>
-  </tr>
-  <tr>
-    <td>Min-heap</td>
-    <td>O(n + k log n)</td>
-    <td>O(n)</td>
-  </tr>
-  <tr>
-    <td>Max-heap</td>
-    <td>O(n log k)</td>
-    <td>O(k)</td>
-  </tr>
-  <tr>
-    <td>Quick select</td>
-    <td>O(n) to O(n<sup>2</sup>)</td>
-    <td>O(1)</td>
-  </tr>
-  <tr>
-    <td>Median of medians</td>
-    <td>O(n)</td>
-    <td>O(1)</td>
-  </tr>
-</table>
-
-<section class="solution">
-  Quick select
+<section class="problem">
+  <div>Find the kth largest element in an array of numbers</div>
+  <br>
+  <div>[1, 8, 6, 10, 2]</div>
+  <br>
+  <div>When k = 1, the 1st largest element is 10</div>
+  <div>When k = 3, the 3rd largest element is 6</div>
 </section>
 
-<section class="solution">
-  Median of medians
+<%= solutions_table do %>
+  Sorting             O(n log n)                 O(1)
+  Min-heap            O(n + k log n)             O(n)
+  Max-heap            O(n log k)                 O(k)
+  Quickselect         O(n) to O(n<sup>2</sup>)   O(1)
+  Median of medians   O(n)                       O(1)
+<% end %>
+
+<section class="solutions">
+  <section class="solution">
+    <h2>Solution 1: Sorting</h2>
+
+    Sort the input elements and find the kth largest
+
+    <%= rb_code "code/problems/kth_largest_element/s1.rb" %>
+    <%= complexity_table do %>
+      Time   O(n log n)
+      Space  O(1)        In-place sorting
+    <% end %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 2: Min-heap</h2>
+
+    <%= complexity_table do %>
+      Time   O(n + k log n)
+      Space  O(n)            n elements in the heap
+    <% end %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 3: Max-heap</h2>
+
+    <%= complexity_table do %>
+      Time   O(n log k)
+      Space  O(k)            k elements in the heap
+    <% end %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 4: Quickselect</h2>
+
+    <%= complexity_table do %>
+      Time   O(n)  Worst case O(n<sup>2</sup>) if you get unlucky
+      Space  O(1)  In-place swapping of elements
+    <% end %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 5: Median of medians</h2>
+
+    The previous solution used quickselect with random pivots, which
+    randomly has poor worst-case if you get unlucky. By improving the
+    choice of pivots, we can eliminate the possibility of worst-case
+    performance by doing slightly more work on average.
+
+    <%= complexity_table do %>
+      Time   O(n)
+      Space  O(1)  In-place swapping of elements
+    <% end %>
+  </section>
 </section>
 
 <section class="resources">
-  <a href="https://leetcode.com/problems/kth-largest-element-in-an-array/">Leetcode problem</a>
+  <h2>Resources</h2>
+  <ul>
+    <li><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/">Leetcode problem</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Quickselect">Wikipedia - Quickselect</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Rivest_algorithm">Wikipedia - Floyd-Rivest algorithm</a></li>
+  </ul>
 </section>

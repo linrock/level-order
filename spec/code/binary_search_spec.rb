@@ -1,5 +1,4 @@
 require 'binary_search/s1.rb'
-require 'byebug'
 
 RSpec.describe method(:binary_search) do
   def bsearch(values, target)

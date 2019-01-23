@@ -8,6 +8,7 @@
     <tr>
       <td><%= row[0] %></td>
       <td><%= row[1] %></td>
+      <td><%= row[2] && row[2].html_safe %></td>
     </tr>
   <% end %>
 </table>
