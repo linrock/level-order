@@ -1,30 +1,30 @@
 <h1>Network delay time</h1>
 
 <div>
-  Given a graph G, figure out how long it takes for a signal
-  to propagate from vertex 0 to all vertices in the graph. If
-  it's not possible, return -1.
+  Given a list of directed edges, figure out how long it takes for
+  a signal to propagate from a source vertex to all vertices in the
+  graph. If it's not possible, return infinity.
 </div>
 
-<table class="solutions">
-  <tr>
-    <th>Solution</th>
-    <th>Time</th>
-    <th>Space</th>
-  </tr>
-  <tr>
-    <td>Bellman-Ford algorithm</td>
-    <td>O(|V||E|)</td>
-    <td>O(|V|)</td>
-  </tr>
-  <tr>
-    <td>Breadth-first search</td>
-    <td>O(|V||E|)</td>
-    <td>O(|V|)</td>
-  </tr>
-  <tr>
-    <td>Depth-first search</td>
-    <td>O(|V||E|)</td>
-    <td>O(|V|)</td>
-  </tr>
-</table>
+<%= solutions_table do %>
+  Bellman-Ford algorithm   O(|V||E|)  O(|V|)
+  Breadth-first search     O(|V||E|)  O(|V|)
+  Depth-first search       O(|V||E|)  O(|V|)
+<% end %>
+
+<section class="solutions">
+  <div class="explanation">
+    Graph traversal problem. From the source vertex, visit all
+    nodes and find the minimum time it takes to visit each node.
+    If any nodes remain unvisited, return null. Otherwise, return
+    the maximum of the minimum times.
+  </div>
+
+  <section class="solution">
+    <h2>Solution 1: Bellman-Ford algorithm</h2>
+    <%= rb_code "code/problems/network_delay_time/s1.rb" %>
+  </section>
+
+  <section class="solution">
+  </section>
+</section>
