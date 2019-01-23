@@ -23,4 +23,12 @@ RSpec.describe 'network delay time problem' do
       expect(network_delay_time(edges, n, k)).to eq(answer)
     end
   end
+
+  context 'depth-first search' do
+    before { require 'network_delay_time/s3.rb' }
+
+    it 'finds the right time' do
+      expect(network_delay_time(edges, n, k)).to eq(answer)
+    end
+  end
 end
