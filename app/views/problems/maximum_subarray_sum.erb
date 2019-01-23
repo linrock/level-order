@@ -1,0 +1,71 @@
+<h1>Maximum subarray sum</h1>
+
+<div>
+  Given an array of numbers, return the maximum sum of
+  any continous subarray of numbers.
+</div>
+
+<%= solutions_table do %>
+  Brute force          O(n<sup>2</sup>)  O(1)
+  Divide and conquer   O(n log n)        O(n)
+  Dynamic programming  O(n)              O(n)
+  Kadane's algorithm   O(n)              O(1)
+<% end %>
+
+<section class="solutions">
+  <section class="solution">
+    <h2>Solution 1: Brute force</h2>
+    <div class="explanation">
+      Use two loops to iterate over all possible subarrays.
+      The outer loop iterates over all numbers in the array
+      and decides where the subarray starts. The inner loop
+      decides where the subarray ends. At each step, calculate
+      the sum of numbers in the current subarray and compare
+      with the current max sum to find the overall max sum.
+    </div>
+
+    <%= rb_code "code/problems/maximum_subarray_sum/s1.rb" %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 2: Divide and conquer</h2>
+    <div class="explanation">
+      The maximum subarray sum can exist in 1 of 3 places:
+      <ul>
+        <li>The left half of the array</li>
+        <li>The right half of the array</li>
+        <li>Crossing into both halves of the array</li>
+      </ul>
+      The divide and conquer approach recursively checks smaller
+      subarrays and returns the highest sum found.
+    </div>
+    <%= rb_code "code/problems/maximum_subarray_sum/s2.rb" %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 3: Dynamic programming</h2>
+    <div class="explanation">
+      Each value in the max_sums array is the maximum possible
+      subarray sum in a subarray that includes numbers[i]
+    </div>
+    <%= rb_code "code/problems/maximum_subarray_sum/s3.rb" %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 4: Kadane's algorithm</h2>
+    <div class="explanation">
+      This is effectively the dynamic programming approach above
+      without an additional array, since we only need one cumulative
+      sum.
+    </div>
+    <%= rb_code "code/problems/maximum_subarray_sum/s4.rb" %>
+  </section>
+</section>
+
+<section class="resources">
+  <h2>Resources</h2>
+  <ul>
+    <li><a href="https://leetcode.com/problems/maximum-subarray">Leetcode problem</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm">Wikipedia - Kadane's algorithm</a></li>
+  </ul>
+</section>

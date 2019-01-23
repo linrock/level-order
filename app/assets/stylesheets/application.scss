@@ -85,6 +85,11 @@ section.margin-bottom {
 section.solutions {
   margin-top: 80px;
 
+  .explanation {
+    line-height: 1.5em;
+    margin-bottom: 30px;
+  }
+
   .solution {
     margin-bottom: 60px;
   }
