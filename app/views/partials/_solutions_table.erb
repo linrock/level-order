@@ -1,5 +1,5 @@
 <% rows = yield.strip.split(/\n/).map do |row|
-     row.strip.split(/\s{2,}/)
+     row.strip.gsub(/\^(\d)/, '<sup>\1</sup>').split(/\s{2,}/)
    end
 %>
 
