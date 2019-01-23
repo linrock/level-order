@@ -16,8 +16,10 @@
       top k. Worst case, every word shows up once.
     </div>
     <%= rb_code "code/problems/top_k_frequent_words/s1.rb" %>
-    <div>Time: O(n log n)</div>
-    <div>Space: O(n)</div>
+    <%= render layout: 'partials/complexity_table' do %>
+      Time   O(n log n)
+      Space  O(n)
+    <% end %>
   </section>
 
   <section class="solution">
@@ -36,8 +38,10 @@
       </ul>
     </div>
     <%= rb_code "code/problems/top_k_frequent_words/s2.rb" %>
-    <div>Time: O(n log k)</div>
-    <div>Space: O(n)</div>
+    <%= render layout: 'partials/complexity_table' do %>
+      Time   O(n log k)
+      Space  O(n)
+    <% end %>
   </section>
 </article>
 

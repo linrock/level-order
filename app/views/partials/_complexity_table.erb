@@ -1,0 +1,13 @@
+<% rows = yield.strip.split(/\n/).map do |row|
+    row.strip.split(/\s{2,}/)
+   end
+%>
+
+<table class="complexity">
+  <% rows.each do |row| %>
+    <tr>
+      <td><%= row[0] %></td>
+      <td><%= row[1] %></td>
+    </tr>
+  <% end %>
+</table>
