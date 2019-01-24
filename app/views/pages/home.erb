@@ -1,4 +1,4 @@
-<div class="container top-margin">
+<div class="container">
   <div class="intro">
     Algorithms, data structures, and code problems.
     <br>
@@ -6,38 +6,57 @@
     and links to great resources.
   </div>
 
-  <section class="margin-bottom">
-    <a href="/algorithms">Algorithms</a>
-    <ul>
-      <% @algorithms.each do |algo| %>
-        <li>
-          <a href="/<%= algo %>">
-           <%= algo.gsub(/-/, ' ').capitalize %>
-          </a>
-        </li>
-      <% end %>
-    </ul>
+  <section class="home-sections">
+    <h3><a href="/algorithms">Algorithms</a></h3>
+    <section class="home-section algorithms">
+      <ul>
+        <% @algorithms.each do |algo| %>
+          <li>
+            <a href="/<%= algo %>">
+             <%= algo.gsub(/-/, ' ').capitalize %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </section>
 
-    <a href="/data-structures">Data structures</a>
-    <ul>
-      <% @data_structures.each do |ds| %>
-        <li>
-          <a href="/<%= ds %>">
-            <%= ds.gsub(/-/, ' ').capitalize %>
-          </a>
-        </li>
-      <% end %>
-    </ul>
+    <h3><a href="/data-structures">Data structures</a></h3>
+    <section class="home-section data-structures">
+      <div class="link-list">
+        <h4>Basics</h4>
+        <ul>
+          <li><a href="/linked-list">Linked list</a></li>
+          <li><a href="/stack">Stack</a></li>
+          <li><a href="/queue">Queue</a></li>
+          <li><a href="/hash-table">Hash table</a></li>
+          <li><a href="/graph">Graph</a></li>
+        </ul>
+      </div>
 
-    <a href="/problems">Problems</a>
-    <ul>
-      <% @problems.each do |problem| %>
-        <li>
-          <a href="/problems/<%= problem %>">
-            <%= problem.gsub(/-/, ' ').capitalize %>
-          </a>
-        </li>
-      <% end %>
-    </ul>
+      <div class="link-list">
+        <h4>Trees</h4>
+        <ul>
+          <li><a href="/binary-tree">Binary tree</a></li>
+          <li><a href="/binary-search-tree">Binary search tree</a></li>
+          <li><a href="/binary-heap">Binary heap</a></li>
+          <li><a href="/cartesian-tree">Cartesian tree</a></li>
+          <li><a href="/disjoint-set">Disjoint set</a></li>
+          <li><a href="/trie">Trie</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <h3><a href="/problems">Problems</a></h3>
+    <section class="home-section problems">
+      <ul>
+        <% @problems.each do |problem| %>
+          <li>
+            <a href="/problems/<%= problem %>">
+              <%= problem.gsub(/-/, ' ').capitalize %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </section>
   </section>
 </div>

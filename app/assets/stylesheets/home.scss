@@ -1,0 +1,21 @@
+// homepage intro
+.intro {
+  margin: 30px 0;
+}
+
+section.home-sections {
+  margin-bottom: 80px;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+section.home-section {
+  display: flex;
+  margin-bottom: 40px;
+
+  .link-list {
+    width: 200px;
+  }
+}
