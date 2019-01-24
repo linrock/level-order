@@ -1,0 +1,17 @@
+<% rows = yield.strip.split(/\n/).map do |row|
+     blank_first_column = row =~ /\A\s{6,}/
+     row = row.strip.gsub(/\^(\d|[a-z])/, '<sup>\1</sup>').split(/\s{2,}/)
+     row.unshift("") if blank_first_column
+     row
+   end
+%>
+
+<table class="complexity">
+  <% rows.each do |row| %>
+    <tr>
+      <td><%= row[0] %></td>
+      <td><%= row[1].html_safe %></td>
+      <td><%= row[2] && row[2].html_safe %></td>
+    </tr>
+  <% end %>
+</table>

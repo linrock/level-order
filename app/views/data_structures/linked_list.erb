@@ -4,9 +4,13 @@
   A sequence of elements where each element points to adjacent element(s)
   in the sequence.
   <ul>
-    <li>Singly-linked list - each element points to next element</li>
-    <li>Doubly-linked list - each element points to the next and previous element</li>
-    <li>Circular linked list - a singly or doubly linked list where the last element points to the first element</li>
+    <li>
+      Singly-linked list - each element points to next element</li>
+    <li>
+      Doubly-linked list - each element points to the next and previous element</li>
+    <li>
+      Circular linked list - a singly or doubly linked list where the last
+      element points to the first element</li>
   </ul>
 </div>
 
@@ -15,27 +19,13 @@
   A node in a singly-linked list typically stores a value and a pointer
   to the next node
 </div>
+
 <%= rb_code "code/data_structures/linked_list/list_node.rb" %>
 <%= rb_code "code/data_structures/linked_list/linked_list.rb" %>
-<table class="complexity">
-  <tr>
-    <td>Time</td>
-    <td>Insert</td>
-    <td>O(1)</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Find</td>
-    <td>O(n)</td>
-  </tr>
-  <tr>
-    <td></td>
-    <td>Delete</td>
-    <td>O(n)</td>
-  </tr>
-  <tr>
-    <td>Space</td>
-    <td></td>
-    <td>O(n)</td>
-  </tr>
-</table>
+
+<%= data_structure_complexity_table do %>
+  Time   O(1)  Insert
+         O(n)  Find
+         O(n)  Delete
+  Space  O(n)
+<% end %>
