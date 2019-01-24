@@ -5,28 +5,28 @@ class Stack
 
   def initialize
     @size = 0
-    @head = nil
+    @top = nil
   end
 
   def push(value)
-    node = ListNode.new(value)
+    new_top = ListNode.new(value)
     if @size > 0
-      node.next = @head
+      new_top.next = @top
     end
-    @head = node
+    @top = new_top
     @size += 1
   end
 
   def pop
     return if @size == 0
-    node = @head
-    @head = @head.next
+    top = @top
+    @top = @top.next
     @size -= 1
-    node.value
+    top.value
   end
 
   def peek
     return if @size == 0
-    @head.value
+    @top.value
   end
 end
