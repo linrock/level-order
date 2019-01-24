@@ -6,4 +6,55 @@
     <li>a tree node struct or class</li>
     <li>an array as a backing data structure</li>
   </ul>
+  Some topics covered here
+  <ul>
+    <li>Binary tree representations</li>
+    <li>Constructing binary trees</li>
+    <li>Binary tree depths</li>
+    <li>Merging binary trees</li>
+  </ul>
 </div>
+
+<section>
+  <h2>Constructing binary trees</h2>
+
+  <h3>From pre-order and in-order traversal</h3>
+  <%= complexity_table do %>
+    Recursive   O(n log n)  O(n)
+    Iterative   O(n)        O(n)
+  <% end %>
+
+  <h3>From pre-order and post-order traversal</h3>
+  <%= complexity_table do %>
+    Recursive   O(n log n)  O(n)
+    Iterative   O(n)        O(n)
+  <% end %>
+</section>
+
+<section>
+  <h2>Binary tree depth</h2>
+
+  <h3>Minimum depth</h3>
+    The smallest number of nodes in the path between the root
+    and a leaf node in the tree.
+
+  <h3>Maximum depth</h3>
+  <div>
+    The highest number of nodes in the path between the root
+    and a leaf node in the tree.
+  </div>
+
+  <h3>Balanced binary trees</h3>
+  <div>
+    Binary trees where the difference between the minimum and
+    maximum depths is no greater than 1.
+  </div>
+</section>
+
+<section>
+  <h2>Merging binary trees</h2>
+  <div>
+    Let's say you want to combine the structure of two binary trees
+    while adding up the values of each node.
+  </div>
+</section>
