@@ -1,7 +1,7 @@
 def longest_palindromic_substring(s)
   n = s.length
   return s if n <= 1
-  is_pal = Array.new(n) { Array.new(n, false) }
+  is_pal = Array.new(n) { Array.new(n) }
   i_start = i_end = 0
   (n - 1).downto(0).each do |i|
     i.upto(n - 1).each do |j|

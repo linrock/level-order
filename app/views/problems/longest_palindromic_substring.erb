@@ -28,13 +28,25 @@
   <div class="solution">
     <h2>Solution 1: Brute force</h2>
     <div class="explanation">
-      For all possible substrings, check if it's a palindrome.
-      If it's a palindrome and it's longer than the currently-longest
-      palindrome, save the start and end indices of the substring.
+      Use two loops to iterate over all possible substrings:
+      <ul>
+        <li>The outer loop provides the start index of a substring
+        <li>The inner loop provides the end index of a substring
+      </ul>
+      For each substring, check if it's a palindrome.
+      <ul>
+        <li>If it's a palindrome
+          <ul>
+            <li>See if it's longer than the longest palindrome we've seen so far</li>
+            <li>If it is, save the start and end indices of the substring</li>
+          </ul>
+        <li>If it isn't, move on to the next substring</li>
+      </ul>
+      Afterwards, we'll have the start and end indices of the longest palindrome.
     </div>
     <%= rb_code "code/problems/longest_palindromic_substring/s1.rb" %>
     <%= complexity_table do %>
-      Time   O(n^3)  Each of n^2 substrings takes O(n) time to check
+      Time   O(n^3)  Each of O(n^2) substrings takes O(n) time to check
       Space  O(1)    The start/end indices of the longest palindrome
     <% end %>
   </div>
@@ -43,36 +55,56 @@
     <h2>Solution 2: Dynamic programming</h2>
     <div class="explanation">
       This improves the runtime of the brute force solution by checking
-      whether a substring is a palindrome in constant time instead of
-      linear time.  It saves time at the expense of space by storing
-      whether a substring is a palindrome and referencing these values
-      for longer substrings.
+      whether a substring is a palindrome in O(1) time instead of O(n) time.
+      <br><br>
+      It saves time at the expense of space by storing whether a substring
+      is a palindrome in a 2D array, and referencing these values for each
+      longer substring.
       <br><br>
       Let each value of is_pal[i][j] be
       <ul>
-        <li>true when a substring S<sub>i,j</sub> is a palindrome</li>
-        <li>false otherwise</li>
+        <li>true - when a substring s[i .. j] is a palindrome</li>
+        <li>false - otherwise</li>
+      </ul>
+      We can check if a substring s[i .. j] is a palindrome in O(1) time:
+      <ul>
+        <li>it's a palindrome if s[i] == s[j] and is_pal[i+1][j-1] is true
+        <li>otherwise it's not a palindrome
       </ul>
     </div>
     <%= rb_code "code/problems/longest_palindromic_substring/s2.rb" %>
     <%= complexity_table do %>
-      Time   O(n^2)  Each of n^2 substrings takes O(1) time to check
-      Space  O(n^2)  2D boolean array for n^2 substrings
+      Time   O(n^2)  Each of O(n^2) substrings takes O(1) time to check
+      Space  O(n^2)  2D array of booleans for O(n^2) substrings
     <% end %>
   </div>
 
   <div class="solution">
     <h2>Solution 3: Central expansion</h2>
     <div class="explanation">
-      Iterate over all possible centers of palindromes.
-      A center can begin either
+      This improves on the previous two solutions by iterating
+      over all possible centers of palindromes (2n - 1) ~ O(n) instead of
+      iterating over all possible substrings.
+      <br><br>
+      A center can be represented by a pair of string indices [i, j]
+      <br><br>
+      The center of a palindrome can begin either
       <ul>
-        <li>on a character for odd-length palindromes</li>
-        <li>between two characters for even-length palindromes</li>
+        <li>on a character for odd-length palindromes - [i, i]</li>
+        <li>between two characters for even-length palindromes - [i, i + 1]</li>
       </ul>
-      For each center, check if the first and last letter match.
-      Keep expanding outwards if they do.
-      Store the start and end string indices for the longest palindrome seen so far.
+      For each center [i, j], check if the first and last letter match.
+      <ul>
+        <li>
+          If the letters match
+          <ul>
+            <li>expand the edges outwards to look for a longer palindrome</li>
+            <li>store the start/end indices if it's the longest palindrome seen so far</li>
+          </ul>
+        </li>
+        <li>Otherwise move on to the next center</li>
+      </ul>
+      Afterwards, we'll have the start and end indices of the longest palindrome.
     </div>
     <%= rb_code "code/problems/longest_palindromic_substring/s3.rb" %>
     <%= complexity_table do %>
@@ -84,7 +116,11 @@
   <div class="solution">
     <h2>Solution 3: Manacher's algorithm</h2>
     <div class="explanation">
-      This is an improvement over the central expansion algorithm.
+      This improves over the central expansion algorithm by skipping
+      ahead in the string after finding a palindrome by recognizing that.
+      <ul>
+        <li>the left side of a palindrome is a mirror image of the right side</li>
+      </ul>
     </div>
     <%= complexity_table do %>
       Time   O(n)

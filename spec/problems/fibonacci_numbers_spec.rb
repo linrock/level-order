@@ -19,7 +19,7 @@ RSpec.describe 'fibonacci number problem' do
   context 'recursive' do
     before { require 'fibonacci_numbers/s2.rb' }
 
-    it 'calculates fibonacci numbers' do
+    it 'calculates fibonacci numbers efficiently' do
       numbers.each_with_index do |number, i|
         expect(fibonacci(i)).to eq(number)
       end
@@ -30,7 +30,7 @@ RSpec.describe 'fibonacci number problem' do
   context 'dynamic programming' do
     before { require 'fibonacci_numbers/s3.rb' }
 
-    it 'calculates fibonacci numbers' do
+    it 'calculates fibonacci numbers efficiently' do
       numbers.each_with_index do |number, i|
         expect(fibonacci(i)).to eq(number)
       end
@@ -41,7 +41,7 @@ RSpec.describe 'fibonacci number problem' do
   context 'iterative' do
     before { require 'fibonacci_numbers/s4.rb' }
 
-    it 'calculates fibonacci numbers' do
+    it 'calculates fibonacci numbers efficiently' do
       numbers.each_with_index do |number, i|
         expect(fibonacci(i)).to eq(number)
       end
