@@ -1,0 +1,9 @@
+<div class="explanation">
+  <% html = yield.gsub(/\^(\d|[a-z])/, '<sup>\1</sup>').gsub(/\A\n*/, '')
+     html_rows = html.split(/\n/)
+     while html_rows.all? {|row| row[0] == " " || row[0].nil? }
+       html_rows.each {|row| row[0] = "" }
+     end
+     html = html_rows.join("\n") %>
+  <%= Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(html).html_safe %>
+</div>

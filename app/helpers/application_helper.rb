@@ -34,4 +34,10 @@ module ApplicationHelper
       block.call
     end
   end
+
+  def solution_explanation(&block)
+    render layout: 'partials/solution_explanation' do
+      block.call
+    end
+  end
 end

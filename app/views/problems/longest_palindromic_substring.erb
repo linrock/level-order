@@ -3,17 +3,16 @@
 <section class="problem">
   <div>
     Given a string S, find the longest substring of S that's also a
-    palindrome. A palindrome is a string that's the same as when it's
-    reversed.
+    palindrome. A palindrome is a string that reads the same forwards
+    and backwards.
   </div>
-
+  <pre>abc - not a palindrome</pre>
+  <pre>aba - is a palindrome</pre>
   <br>
+  <h3>Example</h3>
+  <pre>eddbacdaadcab<span style="color: orange">ccceeeeeccc</span>d</pre>
   <div>
-    ABCDEEEDFG
-  </div>
-
-  <div>
-    Longest palindrome DEEED
+    The longest palindrome is ccceeeeeccc with a length of 11.
   </div>
 </section>
 
@@ -27,23 +26,23 @@
 <section class="solutions">
   <div class="solution">
     <h2>Solution 1: Brute force</h2>
-    <div class="explanation">
+
+    <%= solution_explanation do %>
       Use two loops to iterate over all possible substrings:
-      <ul>
-        <li>The outer loop provides the start index of a substring
-        <li>The inner loop provides the end index of a substring
-      </ul>
+
+        * The outer loop provides the start index of a substring
+        * The inner loop provides the end index of a substring
+
       For each substring, check if it's a palindrome.
-      <ul>
-        <li>If it's a palindrome
-          <ul>
-            <li>See if it's longer than the longest palindrome we've seen so far</li>
-            <li>If it is, save the start and end indices of the substring</li>
-          </ul>
-        <li>If it isn't, move on to the next substring</li>
-      </ul>
+
+        * If it's a palindrome
+          * See if it's longer than the longest palindrome we've seen so far
+          * If it is, save the start and end indices of the substring
+        * If it isn't, move on to the next substring
+
       Afterwards, we'll have the start and end indices of the longest palindrome.
-    </div>
+    <% end %>
+
     <%= rb_code "code/problems/longest_palindromic_substring/s1.rb" %>
     <%= complexity_table do %>
       Time   O(n^3)  Each of O(n^2) substrings takes O(n) time to check
@@ -127,4 +126,15 @@
       Space  O(1)
     <% end %>
   </div>
+</section>
+
+<section class="resources">
+  <h2>Resources</h2>
+  <ul>
+    <li>
+      <a href="https://leetcode.com/problems/longest-palindromic-substring/">
+        Leetcode problem
+      </a>
+    </li>
+  </ul>
 </section>
