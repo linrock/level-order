@@ -1,0 +1,13 @@
+<% links = yield.strip.split(/\n{2,}/).map do |pair|
+     pair.split(/\n/)
+   end %>
+
+<section class="resources">
+  <h2>Resources</h2>
+
+  <ul>
+    <% links.each do |name, link| %>
+      <li><a href="<%= link %>"><%= name %></a></li>
+    <% end %>
+  </ul>
+</section>

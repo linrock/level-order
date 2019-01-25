@@ -29,16 +29,16 @@
 
   <section class="solution">
     <h2>Solution 2: Divide and conquer</h2>
-    <div class="explanation">
+    <%= solution_explanation do %>
       The maximum subarray sum can exist in 1 of 3 places:
-      <ul>
-        <li>The left half of the array</li>
-        <li>The right half of the array</li>
-        <li>Crossing into both halves of the array</li>
-      </ul>
+
+        * The left half of the array
+        * The right half of the array
+        * Crossing into both halves of the array
+
       The divide and conquer approach recursively checks smaller
       subarrays and returns the highest sum found.
-    </div>
+    <% end %>
     <%= rb_code "code/problems/maximum_subarray_sum/s2.rb" %>
   </section>
 
@@ -62,10 +62,10 @@
   </section>
 </section>
 
-<section class="resources">
-  <h2>Resources</h2>
-  <ul>
-    <li><a href="https://leetcode.com/problems/maximum-subarray">Leetcode problem</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm">Wikipedia - Kadane's algorithm</a></li>
-  </ul>
-</section>
+<%= resources_section do %>
+  Leetcode problem
+  https://leetcode.com/problems/maximum-subarray
+
+  Wikipedia - Kadane's algorithm
+  https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm
+<% end %>

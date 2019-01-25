@@ -21,7 +21,13 @@
   <section class="solution">
     <h2>Solution 1: Sorting</h2>
 
-    Sort the input elements and find the kth largest
+    <%= solution_explanation do %>
+      Sort the input elements and find the k-th largest element
+      in the sorted array. This is fine when n is small, but fully
+      sorting the array is doing a lot of unnecessary work in
+      most cases. Plus you would want more-efficient solutions when
+      n is large.
+    <% end %>
 
     <%= rb_code "code/problems/kth_largest_element/s1.rb" %>
     <%= complexity_table do %>
@@ -31,7 +37,25 @@
   </section>
 
   <section class="solution">
-    <h2>Solution 2: Min-heap</h2>
+    <h2>Solution 2: Max-heap</h2>
+
+    <%= solution_explanation do %>
+      We can put all the elements in the array into a max-heap
+      and then pop k values from the heap to get the k-th largest
+      element.
+
+      Runtime analysis:
+
+        * Building a max heap takes O(n) time and O(n) space
+        * Finding the max element in the heap takes O(1) time
+        * Removing the max element and fixing the heap order takes O(log n) time
+        * Removing the max element k times would take O(k log n) time overall
+
+      Looking at different values of k:
+
+        * When k is large, the time complexity approaches O(n + n log n) ~ O(n log n)
+        * When k is small, the time complexity approaches O(n + 1 log n) ~ O(n)
+    <% end %>
 
     <%= complexity_table do %>
       Time   O(n + k log n)
@@ -40,7 +64,22 @@
   </section>
 
   <section class="solution">
-    <h2>Solution 3: Max-heap</h2>
+    <h2>Solution 3: Min-heap</h2>
+
+    <%= solution_explanation do %>
+      Alternatively, we can use a min heap to save space and
+      for the opposite behavior in time complexity as k changes.
+
+      To find the k-th largest value:
+
+        * We can create a min-heap with a max size of k
+        * For each element in the array
+          * If the heap is not yet full, put it into the heap
+          * If the heap is full, add it if it's larger than the min value in the heap
+        * Each of n insertions will take O(log k) time
+        * The min value in the heap is the kth-largest element
+
+    <% end %>
 
     <%= complexity_table do %>
       Time   O(n log k)
@@ -51,8 +90,14 @@
   <section class="solution">
     <h2>Solution 4: Quickselect</h2>
 
+    <%= solution_explanation do %>
+      By only partially sorting the array, we can avoid doing
+      unnecessary work and find the kth-largest element in O(n)
+      time on average by using a selection algorithm.
+    <% end %>
+
     <%= complexity_table do %>
-      Time   O(n)  Worst case O(n<sup>2</sup>) if you get unlucky
+      Time   O(n)  Worst case O(n^2) if you get unlucky
       Space  O(1)  In-place swapping of elements
     <% end %>
   </section>
@@ -60,10 +105,14 @@
   <section class="solution">
     <h2>Solution 5: Median of medians</h2>
 
-    The previous solution used quickselect with random pivots, which
-    randomly has poor worst-case if you get unlucky. By improving the
-    choice of pivots, we can eliminate the possibility of worst-case
-    performance by doing slightly more work on average.
+    <%= solution_explanation do %>
+      The previous solution used quickselect with random pivots, which
+      randomly has poor worst-case if you get unlucky. By improving the
+      way that pivots are chosen, we can eliminate the possibility of
+      running into the worst-case performance scenario. The tradeoff is
+      that we'll do slightly more work on average, but still in linear
+      time.
+    <% end %>
 
     <%= complexity_table do %>
       Time   O(n)
@@ -72,11 +121,13 @@
   </section>
 </section>
 
-<section class="resources">
-  <h2>Resources</h2>
-  <ul>
-    <li><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/">Leetcode problem</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/Quickselect">Wikipedia - Quickselect</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/Floyd%E2%80%93Rivest_algorithm">Wikipedia - Floyd-Rivest algorithm</a></li>
-  </ul>
-</section>
+<%= resources_section do %>
+  Leetcode problem
+  https://leetcode.com/problems/kth-largest-element-in-an-array/
+
+  Wikipedia - Quickselect
+  https://en.wikipedia.org/wiki/Quickselect
+
+  Wikipedia - Floyd-Rivest algorithm
+  https://en.wikipedia.org/wiki/Floyd%E2%80%93Rivest_algorithm
+<% end %>

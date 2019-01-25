@@ -40,4 +40,10 @@ module ApplicationHelper
       block.call
     end
   end
+
+  def resources_section(&block)
+    render layout: 'partials/resources_section' do
+      block.call
+    end
+  end
 end
