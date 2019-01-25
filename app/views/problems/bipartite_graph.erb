@@ -1,16 +1,69 @@
 <h1>Bipartite graph</h1>
 
 <div>
-  Given a graph G, can we partition the vertices of the graph
-  such that each edge connects one partition to another?
+  Given an undirected graph G, can we group the vertices of the graph
+  into two groups such that each edge in the graph only connects
+  vertices in one group to another?
+
+  <h3>Examples</h3>
+  <pre>
+    A -- C         YES
+    |    |         {A, D} and {B, C} are two possible groups
+    B -- D
+
+    A -- C         NO
+    |    | \       There's no way to group these vertices
+    B -- D - E
+
+    A -- C   E     YES
+    |    |   |     {A, D, E} and {B, C, F} are two possible groups
+    B -- D   F     
+  </pre>
 </div>
 
 <section class="solutions">
-  <h2>Solution 2: Breadth-first search</h2>
-  <div>Time complexity: O(|V||E|)</div>
-  <div>Space complexity: O(|V|)</div>
+  <section class="solution">
+    <h2>Solution 1: Breadth-first search</h2>
+    <%= solution_explanation do %>
+      We can determine whether the graph is bipartite by visiting
+      all vertices in the graph and attempting to add a color to
+      each vertex such that all the edges only connect vertices
+      of opposite colors.
+      
+      If any edge in the graph connects two vertices of the same color
 
-  <h2>Solution 1: Depth-first search</h2>
-  <div>Time complexity: O(|V||E|)</div>
-  <div>Space complexity: O(|V|)</div>
+      * the graph is not bipartite
+      * otherwise, the graph is bipartite
+
+      A breadth-first search approach is:
+
+      * For each vertex in the graph
+        * Create an empty queue and put the vertex into the queue
+        * While the queue is not empty
+            * Get a vertex from the queue
+            * Skip checking the vertex if it's been visited before
+            * If the vertex has a color
+                * Take note of it's color
+                * Otherwise set the color to BLACK
+            * For each of the neighboring vertices
+                * If it's the same color, the graph is not bipartite
+                * Else set the neighbor vertex color to the opposite color
+                * Add the neighbor vertex to the queue
+            * Mark the current vertex as visited
+    <% end %>
+
+    <%= rb_code "code/problems/bipartite_graph/s1.rb" %>
+    <%= complexity_table do %>
+      Time   O(|V||E|)  Visiting each vertex and each edge at least once
+      Space  O(|V|)     Tracking colors and visit status for each vertex
+    <% end %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 2: Depth-first search</h2>
+    <%= complexity_table do %>
+      Time   O(|V||E|)
+      Space  O(|V|)
+    <% end %>
+  </section>
 </section>

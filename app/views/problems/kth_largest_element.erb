@@ -2,19 +2,21 @@
 
 <section class="problem">
   <div>Find the kth largest element in an array of numbers</div>
-  <br>
-  <div>[1, 8, 6, 10, 2]</div>
-  <br>
-  <div>When k = 1, the 1st largest element is 10</div>
-  <div>When k = 3, the 3rd largest element is 6</div>
+
+  <pre>
+    [1, 8, 6, 10, 2]
+
+    When k = 1, the 1st largest element is 10
+    When k = 3, the 3rd largest element is 6
+  </pre>
 </section>
 
 <%= solutions_table do %>
-  Sorting             O(n log n)                 O(1)
-  Min-heap            O(n + k log n)             O(n)
-  Max-heap            O(n log k)                 O(k)
-  Quickselect         O(n) to O(n<sup>2</sup>)   O(1)
-  Median of medians   O(n)                       O(1)
+  Sorting             O(n log n)       O(1)
+  Min-heap            O(n + k log n)   O(n)
+  Max-heap            O(n log k)       O(k)
+  Quickselect         O(n) to O(n^2)   O(1)
+  Median of medians   O(n)             O(1)
 <% end %>
 
 <section class="solutions">
