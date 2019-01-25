@@ -10,7 +10,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 # gem 'mini_racer', platforms: :ruby
+
 gem 'rouge'
+gem 'redcarpet'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
