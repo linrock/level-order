@@ -54,15 +54,15 @@
 
     <%= rb_code "code/problems/bipartite_graph/s1.rb" %>
     <%= complexity_table do %>
-      Time   O(|V||E|)  Visiting each vertex and each edge at least once
-      Space  O(|V|)     Tracking colors and visit status for each vertex
+      Time   O(|V| + |E|)  Visiting each vertex and each edge at least once
+      Space  O(|V|)        Tracking colors and visit status for each vertex
     <% end %>
   </section>
 
   <section class="solution">
     <h2>Solution 2: Depth-first search</h2>
     <%= complexity_table do %>
-      Time   O(|V||E|)
+      Time   O(|V| + |E|)
       Space  O(|V|)
     <% end %>
   </section>
