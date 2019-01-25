@@ -1,11 +1,20 @@
 <h1>Binary search tree</h1>
 
 <div>
-  A binary tree where:
+  A binary search tree (BST) is a binary tree where:
   <ul>
     <li>the value of each left element is smaller than the parent value
     <li>the value of each right element is larger than the parent value
   </ul>
+  <pre>
+         6
+       /   \
+      3     8
+     / \   / \
+    2   4 7   10
+   /         /  \
+  1         9   11
+  </pre>
   Some topics covered here
   <ul>
     <li>Constructing binary search trees</li>
@@ -18,24 +27,86 @@
 <section>
   <h2>Constructing binary search trees</h2>
 
-  <div>From a sorted array, you can recursively build a balanced BST</div>
+  <div>
+    From an array of values, you can build a BST by adding each
+    value to the tree one-at-a-time, making sure to insert each
+    value in the right place.
+  </div>
+  <%= rb_code "code/data_structures/binary_search_tree/build_bst.rb" %>
+
+  <div>
+    However, if you take the above approach to building a BST from a sorted
+    array, you'll wind up with a tree that looks like this.
+  </div>
+  <pre>
+     1
+      \
+       2
+        \
+         3
+          \
+           4
+            \
+             5
+  </pre>
+  <div>
+    That's effectively a linked list. In fact, a linked list is a specfic type
+    of tree, the same way that a tree is a specific type of graph.
+  </div>
+  <br>
+  <div>
+    You could shuffle the input array of values, then insert the values
+    one-at-a-time to build a balanced BST most of the time.
+  </div>
+  <br>
+  <div>
+    Or from a sorted array, you can guarantee to build yourself a BST
+    by using the middle element of the array as the root of each subtree
+  </div>
+  <%= rb_code "code/data_structures/binary_search_tree/build_balanced_bst.rb" %>
+
 </section>
 
 <section>
   <h2>Binary search tree operations</h2>
 
   <h3>Inserting values</h3>
+  <div>
+    You could recursively find the right place to insert a value.
+  </div>
+  <%= rb_code "code/data_structures/binary_search_tree/insert_into_bst.rb" %>
+  <%= complexity_table do %>
+    Time   O(h)  Traverse the height of the tree to insert a value
+    Space  O(h)  The max depth of the call stack
+  <% end %>
+  <div>
+    However, the space complexity could be improved by iteratively finding
+    the correct location to insert the value.
+  </div>
+
   <h3>Searching for values</h3>
+  <div>
+    You could also recursively search for whether a value exists in the tree.
+  </div>
+  <%= rb_code "code/data_structures/binary_search_tree/search_bst.rb" %>
+  <%= complexity_table do %>
+    Time   O(h)  Traverse the height of the tree to insert a value
+    Space  O(h)  The max depth of the call stack
+  <% end %>
+  <div>
+    Again, because of recursive calls adding up in the call stack, the space
+    complexity of this approach can be improved by taking an iterative approach.
+  </div>
 </section>
 
 <section>
-  <h2>Validating binary search tree</h2>
+  <h2>Validating binary search trees</h2>
 
   <div>Check that the in-order traversal order is increasing</div>
 </section>
 
 <section>
-  <h2>Trimming binary search tree</h2>
+  <h2>Trimming binary search trees</h2>
 
-  <div>Removing values from the tree that fall outside a number range</div>
+  <div>Remove values from the tree that fall outside a number range</div>
 </section>
