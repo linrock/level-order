@@ -1,8 +1,8 @@
-require 'queue/queue'
+require 'two_stacks_queue'
 
-RSpec.describe Codex::Queue do
+RSpec.describe TwoStacksQueue do
   it 'enqueues, peeks, and dequeues' do
-    queue = Codex::Queue.new
+    queue = TwoStacksQueue.new
     expect(queue.peek).to eq(nil)
     expect(queue.size).to eq(0)
     queue.enqueue 0
@@ -16,5 +16,11 @@ RSpec.describe Codex::Queue do
     expect(queue.dequeue).to eq(2)
     expect(queue.size).to eq(0)
     expect(queue.peek).to eq(nil)
+    queue.enqueue 10
+    queue.enqueue 20
+    queue.enqueue 30
+    expect(queue.size).to eq(3)
+    expect(queue.peek).to eq(10)
+    expect(queue.dequeue).to eq(10)
   end
 end

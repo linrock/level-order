@@ -1,6 +1,7 @@
-require 'list_node'
-
 class Stack
+
+  Node = Struct.new(:value, :prev, :next)
+
   attr_reader :size
 
   def initialize
@@ -9,7 +10,7 @@ class Stack
   end
 
   def push(value)
-    new_top = ListNode.new(value)
+    new_top = Node.new(value)
     if @size > 0
       new_top.next = @top
     end
@@ -18,7 +19,7 @@ class Stack
   end
 
   def pop
-    return if @size == 0
+    return if empty?
     top = @top
     @top = @top.next
     @size -= 1
@@ -26,7 +27,11 @@ class Stack
   end
 
   def peek
-    return if @size == 0
+    return if empty?
     @top.value
+  end
+
+  def empty?
+    @size == 0
   end
 end

@@ -29,7 +29,7 @@ class LinkedListQueue
   end
 
   def dequeue
-    return if empty?
+    return if @size == 0
     value = @front.value
     if @size == 1
       @front = @back = nil
@@ -43,11 +43,7 @@ class LinkedListQueue
   end
 
   def peek
-    return if empty?
+    return if @size == 0
     @front.value
-  end
-
-  def empty?
-    @size == 0
   end
 end
