@@ -18,10 +18,37 @@
   1  9 10     5  9 7
 </pre>
 
-Heaps let you efficiently keep track of the largest or smallest
-elements.
+Heaps let you efficiently access the largest or smallest
+elements in a list of elements.
+
+<%= explanation do %>
+  Typically, a heap is backed by an array. In a complete binary tree,
+  you know where to look for the parent and children nodes from any given
+  array index.
+
+  From an array index i in a zero-indexed array
+
+  * 2*i + 1 = the array index of the left child
+  * 2*i + 2 = the array index of the right child
+  * (i-1)/2 = the array index of the parent
+<% end %>
 
 <h2>Building a heap</h2>
+<h3>Inserting each element</h3>
+<%= explanation do %>
+  You can insert each element into the heap one-at-a-time, and then
+  restore the heap order to create a heap. This runs in O(n log n) time,
+  since for each of n elements, restoring the heap order takes O(log n)
+  time after you insert it.
+
+  Process:
+
+  * Add the element you want to insert to the end of the array
+  * Sift up the last element in the array to restore the heap order
+<% end %>
+<%= rb_code "code/data_structures/binary_heap/sift_up.rb" %>
+
+<h3>Floyd's algorithm</h3>
 <div>
   Floyd's algorithm can create a heap-ordered array in O(n) time.
   Heapifying an array is arranging its elements in a heap-ordered way.
