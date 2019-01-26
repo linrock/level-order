@@ -1,9 +1,6 @@
 require 'stack'
 
 class TwoStacksQueue
-
-  Node = Struct.new(:value, :prev, :next)
-
   attr_reader :size
 
   def initialize

@@ -1,24 +1,17 @@
 class LinkedListQueue
 
-  class Node
-    attr_accessor :value, :prev, :next
-
-    def initialize(value)
-      @value = value
-    end
-  end
+  Node = Struct.new(:value, :prev, :next)
 
   attr_reader :size
 
   def initialize
     @size = 0
-    @front = nil
-    @back = nil
+    @front = @back = nil
   end
 
   def enqueue(value)
     new_back = Node.new(value)
-    if @size == 0
+    if empty?
       @front = @back = new_back
     else
       new_back.next = @back
@@ -29,7 +22,7 @@ class LinkedListQueue
   end
 
   def dequeue
-    return if @size == 0
+    return if empty?
     value = @front.value
     if @size == 1
       @front = @back = nil
@@ -43,7 +36,11 @@ class LinkedListQueue
   end
 
   def peek
-    return if @size == 0
+    return if empty?
     @front.value
+  end
+
+  def empty?
+    @size == 0
   end
 end
