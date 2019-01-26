@@ -1,27 +1,55 @@
 <h1>Binary heap</h1>
 
-<div>
+<%= explanation do %>
   A complete binary tree where parent and child nodes are ordered
   in a specific way.
-</div>
 
-<h3>Max heap</h3>
-<div>
-  The values of all parent nodes in the tree are larger than both
-  of their child nodes.
-</div>
+  * Max heap - the values of all parent nodes in the tree are larger
+    than both of their child nodes.
+  * Min heap - the values of all parent nodes in the tree are smaller
+    than both of their child nodes.
+<% end %>
 
-<h3>Min heap</h3>
-<div>
-  The values of all parent nodes in the tree are smaller than both
-  of their child nodes.
-</div>
+<pre>
+      3           1
+     / \         / \
+    2   4       2   3
+   / \ /       / \ /
+  1  9 10     5  9 7
+</pre>
 
-<h3>Building a heap</h3>
+Heaps let you efficiently keep track of the largest or smallest
+elements.
+
+<h2>Building a heap</h2>
 <div>
   Floyd's algorithm can create a heap-ordered array in O(n) time.
-  We can say that to heapify an array is to arrange its elements in
-  a heap-ordered way.
+  Heapifying an array is arranging its elements in a heap-ordered way.
+  Start with the lowest level in the tree with parent child nodes
+  and work your way up the tree, sifting nodes down if they're out of
+  order.
 </div>
 <%= rb_code "code/data_structures/binary_heap/heapify.rb" %>
+<div>
+  Sifting down makes sure that a node in a tree is heap-ordered.
+  If the parent node is larger than any child node, swap the two
+  values in the nodes. Then do the same for the swapped child node
+  until the heap is back in order.
+</div>
 <%= rb_code "code/data_structures/binary_heap/sift_down.rb" %>
+
+<h2>Min heap</h2>
+<%= explanation do %>
+  Basic things you might want to do with a min heap are
+
+  * Insert - add a value into the heap
+  * Pop - remove the min value from the heap
+  * Min - look at the min value in the heap
+<% end %>
+<%= rb_code "code/data_structures/binary_heap/min_heap.rb" %>
+<%= data_structure_complexity_table do %>
+  Time   O(log n)  Insert  fixing heap-order when adding a value
+         O(log n)  Pop     fixing heap-order when removing a value
+         O(1)      Min     looking at the first value in the heap
+  Space  O(n)
+<% end %>
