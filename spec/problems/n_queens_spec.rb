@@ -43,10 +43,25 @@ RSpec.describe 'n-queens problem' do
       expect(check_board(n_queens(1), 1)).to eq(true)
       expect(n_queens(2)).to eq(false)
       expect(n_queens(3)).to eq(false)
-      expect(check_board(n_queens(4), 4)).to eq(true)
-      expect(check_board(n_queens(6), 6)).to eq(true)
-      expect(check_board(n_queens(8), 8)).to eq(true)
-      expect(check_board(n_queens(10), 10)).to eq(true)
+      (4 .. 10).each do |n|
+        expect(check_board(n_queens(n), n)).to eq(true)
+      end
+    end
+  end
+
+  context 'closed-form solution' do
+    before { require 'n_queens/s3.rb' }
+
+    it 'solves n queens' do
+      expect(check_board(n_queens(1), 1)).to eq(true)
+      expect(n_queens(2)).to eq(false)
+      expect(n_queens(3)).to eq(false)
+      (4 .. 10).each do |n|
+        expect(check_board(n_queens(n), n)).to eq(true)
+      end
+      expect(check_board(n_queens(20), 20)).to eq(true)
+      expect(check_board(n_queens(21), 21)).to eq(true)
+      expect(check_board(n_queens(50), 50)).to eq(true)
     end
   end
 end

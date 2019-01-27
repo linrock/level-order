@@ -1,0 +1,41 @@
+<h1>N Queens</h1>
+
+<%= solutions_table do %>
+  Brute force           O(n^2 * n^n)  O(n^2)
+  Backtracking          O(n!)         O(n^2)
+  Closed-form solution  O(n)          O(n^2)
+<% end %>
+
+<section class="solutions">
+  <section class="solution">
+    <h2>Solution 1: Brute force</h2>
+    <%= complexity_table do %>
+      Time   O(n^2 * n^n)
+      Space  O(n^2)
+    <% end %>
+    <%= rb_code "code/problems/n_queens/s1.rb" %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 2: Backtracking</h2>
+    <%= complexity_table do %>
+      Time   O(n!)
+      Space  O(n^2)
+    <% end %>
+    <%= rb_code "code/problems/n_queens/s2.rb" %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 3: Closed form</h2>
+    <%= complexity_table do %>
+      Time   O(n)
+      Space  O(n^2)
+    <% end %>
+    <%= rb_code "code/problems/n_queens/s3.rb" %>
+  </section>
+</section>
+
+<%= resources_section do %>
+  Wikipedia - Eight queens puzzle
+  https://en.wikipedia.org/wiki/Eight_queens_puzzle
+<% end %>
