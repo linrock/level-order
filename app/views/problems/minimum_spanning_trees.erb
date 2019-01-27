@@ -1,0 +1,39 @@
+<h1>Minimum spanning trees</h1>
+
+<div>
+  Given a connected graph G, build a tree from the graph such that
+  the sum of the edge weights in the tree is minimized.
+</div>
+
+<%= solutions_table do %>
+  Prim's algorithm      O(|E| log |E|)  O(|V|)
+  Kruskal's algorithm   O(|E| log |E|)  O(|V|)
+<% end %>
+
+<section class="solutions">
+  <h2>Solution 1: Prim's algorithm</h2>
+  <div class="explanation">
+
+  </div>
+  <%# rb_code "code/problems/minimum_spanning_tree/s1.rb" %>
+  <%= complexity_table do %>
+    Time   O(|E| log |E|)
+    Space  O(|V|)
+  <% end %>
+
+  <h2>Solution 2: Kruskal's algorithm</h2>
+  <div class="explanation">
+  <%= solution_explanation do %>
+    * Sort edges by weight
+    * Use a disjoint set to decide which components to connect
+  <% end %>
+  <%# rb_code "code/problems/minimum_spanning_tree/s1.rb" %>
+  <%= complexity_table do %>
+    Time   O(|E| log |E|)
+    Space  O(|V|)
+  <% end %>
+</section>
+
+<%= resources_section do %>
+
+<% end %>

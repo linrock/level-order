@@ -4,7 +4,7 @@ def longest_increasing_subsequence(s)
   longest_length = 1
   (1 .. (2 ** n - 1)).each do |i|
     seq = []
-    bitmask = 1
+    bitmask = i
     n.times do |j|
       seq << s[j] if bitmask & i
       bitmask *= 2

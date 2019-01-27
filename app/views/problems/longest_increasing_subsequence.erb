@@ -1,8 +1,14 @@
 <h1>Longest increasing subsequence</h1>
 
+<article class="problem-part">
 <div>
   Part 1. Find the length of the longest increasing subsequence
 </div>
+<%= solutions_table do %>
+  Brute force          O(2^n)      O(1)
+  Dynamic programming  O(n^2)      O(n)
+  Patience sorting     O(n log n)  O(n)
+<% end %>
 
 <section class="solutions">
   <h2>Solution 1: Brute force</h2>
@@ -40,7 +46,15 @@
 <section class="resources">
 
 </section>
+</article>
 
-<div>
-  Part 2. Find one of the longest increasing subsequences
-</div>
+<article class="problem-part">
+  <div>
+    Part 2. Find one of the longest increasing subsequences
+  </div>
+  <%= solutions_table do %>
+    Brute force          O(2^n)      O(n)
+    Dynamic programming  O(n^2)      O(n)
+    Patience sorting     O(n log n)  O(n)
+  <% end %>
+<article>

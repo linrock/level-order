@@ -1,0 +1,46 @@
+<h1>Longest increasing substring</h1>
+
+<div>
+  Part 1. Find the length of the longest increasing substring
+</div>
+
+<section class="solutions">
+  <h2>Solution 1: Brute force</h2>
+  <div class="explanation">
+    For each possible substring, check if it's an increasing substring.
+    If it is, save its length if it's longer than the previous longest substring.
+    When generating a substring, consider that every element in the original
+    sequence can either be in the sequence or not in the sequence.
+  </div>
+  <%= rb_code "code/problems/longest_increasing_substring/s1.rb" %>
+  <%= complexity_table do %>
+    Time   O(2^n)
+    Space  O(1)
+  <% end %>
+
+  <h2>Solution 2: Dynamic programming</h2>
+  <div class="explanation">
+    Iterate over all elements of the array.
+  </div>
+  <%= complexity_table do %>
+    Time   O(n^2)
+    Space  O(n)
+  <% end %>
+
+  <h2>Solution 3: Prefix trees</h2>
+  <div class="explanation">
+    Using a trie data structure
+  </div>
+  <%= complexity_table do %>
+    Time   O(n)
+    Space  O(n)
+  <% end %>
+</section>
+
+<section class="resources">
+
+</section>
+
+<div>
+  Part 2. Find one of the longest increasing substrings
+</div>
