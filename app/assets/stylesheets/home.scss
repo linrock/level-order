@@ -19,3 +19,36 @@ section.home-section {
     width: 200px;
   }
 }
+
+header.problems-section-header {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #cecece;
+  margin-bottom: 40px;
+
+  h2 {
+    font-size: 35px;
+    margin-bottom: 5px;
+  }
+}
+
+section.problems-subsection {
+  margin-bottom: 30px;
+
+  h4 {
+    font-weight: normal;
+    margin: 10px 0 25px;
+  }
+
+  .problem {
+    display: flex;
+    margin: 5px 0;
+
+    a {
+      width: 200px;
+    }
+
+    .description {
+      width: 350px;
+    }
+  }
+}

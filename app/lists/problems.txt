@@ -1,0 +1,54 @@
+# Dynamic programming
+
+Solutions can be efficiently found by finding and reusing
+the solutions to overlapping sub-problems
+
+Fibonacci numbers
+  /fibonacci-numbers
+  Calculate the n-th fibonacci number
+
+Edit distance
+  /edit-distance
+  The minimum number of edits needed to convert one string to another
+
+Knapsack problem
+  /knapsack-problem
+  Maximize the value of items that can fit in a weight-limited knapsack
+
+Subset sum
+  /subset-sum
+  Given a set of numbers, does a subset exist that add up to a given sum?
+
+
+# Backtracking
+
+Depth-first search through the solution space, backtracking
+to a checkpoint when a path is found to not lead to a solution
+
+N Queens
+  /n-queens
+
+Knight's tour
+  /knights-tour
+
+Sudoku solver
+  /sudoku-solver
+
+Rat in a maze
+  /rat-in-a-maze
+
+Hamiltonian cycle
+  /hamiltonian-cycle
+
+
+# Greedy
+
+Greedily making the best-looking choices leads to an optimal solution overall
+
+Minimum spanning trees
+  /minimum-spanning-trees
+  Building a tree from the edges of a graph with minimum edge weights
+
+Huffman coding
+  /huffman-coding
+  A lossless data compression algorithm
