@@ -1,1 +1,63 @@
 <h1>Longest common subsequence</h1>
+
+<section class="problem">
+  Given two strings, S1 and S2, find the longest
+  subsequence contained in both strings.
+
+  <pre>
+    AABCDEFAAX
+    AABBCXXDEEFFAXA
+  </pre>
+  The longest common subsequence is
+  <pre>
+    AABCDEFAA
+  </pre>
+  with a length of 9
+</section>
+
+<%= solutions_table do %>
+  Brute force            O(n * 2^m)   O(1)
+  Dynamic programming    O(mn)        O(mn)
+<% end %>
+
+<section class="solutions">
+  <div class="solution">
+    <h2>Solution 1: Brute force</h2>
+    <%= solution_explanation do %>
+
+      * Consider all possible sequences of one string
+      * For each of these sequences, check if it's a subsequence in the other string
+      * If it is, note its length if it's longer than the last longest subsequence
+
+    <% end %>
+
+    <%= rb_code "code/problems/longest_common_subsequence/s1.rb" %>
+    <%= complexity_table do %>
+      Time   O(n * 2^m)  m comparisons for each of 2^n possible subsequences
+      Space  O(1)        The length of the longest subsequence seen
+    <% end %>
+  </div>
+
+  <div class="solution">
+    <h2>Solution 2: Dynamic programming</h2>
+    <%= solution_explanation do %>
+
+      * Compare every prefix of one string to the other
+      * If the last characters of each prefix match, add 1 to the longest length
+        without the last characters
+      * Otherwise, the longest length is the last longest length
+
+    <% end %>
+
+    <%= rb_code "code/problems/longest_common_subsequence/s2.rb" %>
+    <%= complexity_table do %>
+      Time   O(mn)  Two loops of m and n time
+      Space  O(mn)  2D array of longest common subsequence lengths
+    <% end %>
+  </div>
+</section>
+
+<%= resources_section do %>
+  Wikipedia - Longest common subsequence
+  https://en.wikipedia.org/wiki/Longest_common_subsequence_problem
+<% end %>
