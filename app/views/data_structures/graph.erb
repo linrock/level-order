@@ -1,13 +1,43 @@
 <h1>Graph</h1>
 
-<section class="margin-bottom">
-  <div class="explanation">
-    Common ways to represent graphs are:
-    <br>
-    <ul>
-      <li>Edge lists</li>
-      <li>Adjacency lists</li>
-      <li>Adjacency matrices</li>
-    </ul>
-  </div>
-</section>
+<%= explanation do %>
+  A graph is a set of vertices and edges
+
+  <h3>Examples of graphs</h3>
+
+    * Linked lists
+    * Trees
+    * Forests
+    * Directed graphs
+    * Undirected graphs
+    * Cyclic graphs
+    * Acyclic graphs
+
+  <h3>Graph representations</h3>
+
+  Common ways to represent graphs are:
+
+    * Edge lists
+    * Adjacency lists
+    * Adjacency matrices
+
+  Each of these representations have time/space tradeoffs
+
+  <h3>Shortest paths</h3>
+
+  Some algorithms for finding the shortest path between vertices:
+
+    * Dijkstra's algorithm
+      * At each iteration, looks for shortest paths from the current shortest path
+      * The basic version runs in O(|V|^2 + |E|) time
+      * With an efficient priority queue, it runs in O(|V| log |V|) time
+    * Bellman-Ford
+      * Finds the shortest path from one vertex to all other vertices
+      * Works on negative edge weights, but not negative cycles
+      * Can be used to detect negative cycles
+      * Runs in O(|V||E|) time
+    * Floyd-Warshall
+      * Finds the shortest path between all pairs of vertices
+      * Runs in O(|V|^3) time
+
+<% end %>
