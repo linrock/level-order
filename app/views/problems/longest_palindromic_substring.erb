@@ -1,25 +1,19 @@
-<h1>Longest palindromic substring</h1>
-
 <section class="problem">
-  <div>
-    Given a string S, find the longest substring of S that's also a
-    palindrome. A palindrome is a string that reads the same forwards
-    and backwards.
-  </div>
-  <pre>abc - not a palindrome</pre>
-  <pre>aba - is a palindrome</pre>
-  <br>
+  <h1>Longest palindromic substring</h1>
 
-  <%= rb_code_inline do %>
-    s = "bbbabcdcbaccc"
-    longest_palindromic_substring(s) == "abcdcba"
+  <%= explanation do %>
+    Given a string, find the longest substring that's also a
+    palindrome. A palindrome is a string that reads the same,
+    forwards and backwards.
   <% end %>
 
-  <h3>Example</h3>
-  <pre>eddbacdaadcab<span style="color: orange">ccceeeeeccc</span>d</pre>
-  <div>
-    The longest palindrome is ccceeeeeccc with a length of 11.
-  </div>
+  <%= code_inline do %>
+    Input:   abc
+    Output:  a
+
+    Input:   bananas
+    Output:  anana
+  <% end %>
 </section>
 
 <%= solutions_table do %>

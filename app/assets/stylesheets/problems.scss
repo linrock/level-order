@@ -1,23 +1,51 @@
+// uniform character widths
+pre.code {
+  padding: 20px;
+  line-height: 17px;
+  color: #f5f5f5;
+  background: black;
+}
+
 // table of solutions
 table.solutions {
   margin: 30px 0;
 
   th {
     text-align: left;
+    font-weight: normal;
+    padding-bottom: 15px;
+    opacity: 0.5;
   }
 
   td {
-    padding-right: 25px;
+    padding-right: 35px;
 
     &:first-child {
-      color: #0f9bff;
+      color: #FFBD00;
     }
+  }
+}
+
+section.problem {
+  line-height: 1.5em;
+  margin-top: 60px;
+
+  h1 {
+    font-size: 32px;
+  }
+
+  pre {
+    margin: 35px 0;
   }
 }
 
 // section for solutions and explanations
 section.solutions {
   margin-top: 80px;
+
+  h2 {
+    color: #FFBD00;
+  }
 
   .explanation {
     line-height: 1.5em;
@@ -34,7 +62,11 @@ table.complexity {
   margin: 10px 0;
 
   td {
-    padding-right: 25px;
+    padding-right: 30px;
+
+    &:first-child {
+      opacity: 0.5;
+    }
 
     &:last-child {
       padding-right: 0;

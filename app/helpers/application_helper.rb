@@ -14,6 +14,12 @@ module ApplicationHelper
     %(<pre class="highlight">#{code}</pre>).html_safe
   end
 
+  def code_inline(&block)
+    render layout: 'partials/code' do
+      block.call
+    end
+  end
+
   def rb_code_inline(&block)
     render layout: 'partials/ruby_code' do
       block.call
