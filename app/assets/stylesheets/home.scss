@@ -10,6 +10,7 @@ header.home-header {
   h2 {
     font-size: 16px;
     font-weight: normal;
+    opacity: 0.5;
   }
 }
 
@@ -23,6 +24,7 @@ section.problems-list {
 
     a {
       width: 200px;
+      color: #00e7ff;
     }
 
     .description {

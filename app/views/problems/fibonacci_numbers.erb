@@ -17,7 +17,7 @@
   <% end %>
 </section>
 
-<%= solutions_table do %>
+<%= solutions_table([:bad, :average, :average, :good]) do %>
   Recursion            O(2^n)   O(n)
   Memoization          O(n)     O(n)
   Dynamic programming  O(n)     O(n)
@@ -26,7 +26,7 @@
 
 <section class="solutions">
   <section class="solution">
-    <h2>Solution 1: Recursion</h2>
+    <h2 class="bad">Solution 1: Recursion</h2>
 
     <div class="explanation">
     </div>
@@ -34,7 +34,7 @@
   </section>
 
   <section class="solution">
-    <h2>Solution 2: Memoization</h2>
+    <h2 class="average">Solution 2: Memoization</h2>
 
     <div class="explanation">
     </div>
@@ -42,7 +42,7 @@
   </section>
 
   <section class="solution">
-    <h2>Solution 3: Dynamic programming</h2>
+    <h2 class="average">Solution 3: Dynamic programming</h2>
 
     <div class="explanation">
     </div>
@@ -50,7 +50,7 @@
   </section>
 
   <section class="solution">
-    <h2>Solution 4: Iterative</h2>
+    <h2 class="good">Solution 4: Iterative</h2>
 
     <div class="explanation">
     </div>

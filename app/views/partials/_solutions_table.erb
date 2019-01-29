@@ -9,10 +9,14 @@
     <th>Time</th>
     <th>Space</th>
   </tr>
-  <% rows.each do |row| %>
+  <% rows.each_with_index do |row, i| %>
     <tr>
-      <% row.each do |cell| %>
-        <td><%= cell.html_safe %></td>
+      <% row.each_with_index do |cell, j| %>
+        <% if j == 0 && colors[i] %>
+          <td class="<%= colors[i] %>"><%= cell.html_safe %></td>
+        <% else %>
+          <td><%= cell.html_safe %></td>
+        <% end %>
       <% end %>
     </tr>
   <% end %>

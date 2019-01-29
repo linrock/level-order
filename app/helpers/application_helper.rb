@@ -34,8 +34,8 @@ module ApplicationHelper
   end
 
   # list of solutions and time/space complexities for a problem
-  def solutions_table(&block)
-    render layout: 'partials/solutions_table' do
+  def solutions_table(colors = [], &block)
+    render layout: 'partials/solutions_table', locals: { colors: colors } do
       block.call
     end
   end
