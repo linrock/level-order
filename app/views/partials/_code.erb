@@ -1,3 +1,9 @@
-<% text = yield.strip.split(/\n/).map(&:strip).join("\n") %>
+<% text_rows = yield.split(/\n/)
+   if text_rows.length > 0
+     while text_rows.all? {|row| row[0] == " " || row[0].nil? }
+       text_rows.each {|row| row[0] = "" }
+     end
+   end
+   text = text_rows.join("\n") %>
 
 <pre class="code"><%= text %></pre>

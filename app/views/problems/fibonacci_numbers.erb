@@ -1,12 +1,20 @@
-<h1>Fibonacci numbers</h1>
-
 <section class="problem">
-  A fibonacci number is the sum of the two previous numbers
-  in the sequence.
+  <h1>Fibonacci numbers</h1>
 
-  <div>
-    1 1 2 3 5
-  </div>
+  <%= explanation do %>
+    A fibonacci number is the sum of the two previous numbers
+    in the sequence.
+
+    These are the first 10 fibonacci numbers:  1 1 2 3 5 8 13 21 34 55
+  <% end %>
+
+  <%= code_inline do %>
+    Input:   5
+    Output:  5
+
+    Input:   12
+    Output:  144
+  <% end %>
 </section>
 
 <%= solutions_table do %>

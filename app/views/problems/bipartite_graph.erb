@@ -1,25 +1,41 @@
-<h1>Bipartite graph</h1>
+<section class="problem">
+  <h1>Bipartite graph</h1>
 
-<div>
-  Given an undirected graph G, can we group the vertices of the graph
-  into two groups such that each edge in the graph only connects
-  vertices in one group to another?
+  <%= explanation do %>
+    Given an undirected graph G, can we group the vertices of the graph
+    into two groups such that each edge in the graph only connects
+    vertices in one group to another?
+  <% end %>
 
-  <h3>Examples</h3>
-  <pre>
-    A -- C         YES
-    |    |         {A, D} and {B, C} are two possible groups
-    B -- D
+  <%= code_inline do %>
+    Input:   n_vertices = 4
+             edges = [[0, 1], [0, 2], [1, 3], [2, 3]]
+    Output:  true
 
-    A -- C         NO
-    |    | \       There's no way to group these vertices
-    B -- D - E
+             0 -- 2
+             |    |   [0, 3] and [1, 2] are two possible groups
+             1 -- 3
 
-    A -- C   E     YES
-    |    |   |     {A, D, E} and {B, C, F} are two possible groups
-    B -- D   F     
-  </pre>
-</div>
+
+    Input:   n_vertices = 3
+             edges = [[0, 1], [0, 2], [1, 2]]
+    Output:  false
+
+             0 -- 2
+             |  /     There's no way to group these vertices
+             1
+
+
+    Input:   n_vertices = 6
+             edges = [[0, 1], [0, 2], [1, 3], [2, 3], [4, 5]]
+    Output:  true
+
+             0 -- 2   4
+             |    |   |   [0, 3, 4] and [1, 2, 5]
+             1 -- 3   5
+
+  <% end %>
+</section>
 
 <section class="solutions">
   <section class="solution">

@@ -1,4 +1,24 @@
-<h1>N Queens</h1>
+<section class="problem">
+  <h1>N Queens</h1>
+
+  <%= explanation do %>
+    Given a positive integer N, figure out how to arrange N
+    queens on an NxN board such that no two queens attack the
+    same squares.
+  <% end %>
+
+  <%= code_inline do %>
+    Input:   5
+    Output:  1 0 0 0 0
+             0 0 1 0 0
+             0 0 0 0 1
+             0 1 0 0 0
+             0 0 0 1 0
+
+    Note:    0 = an empty square
+             1 = a square with a queen
+  <% end %>
+</section>
 
 <%= solutions_table do %>
   Brute force           O(n^2 * n^n)  O(n^2)

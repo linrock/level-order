@@ -1,9 +1,29 @@
-<h1>Flood fill</h1>
+<section class="problem">
+  <h1>Flood fill</h1>
 
-<div>
-  Given a pixel coordinate in an m x n image, convert all
-  connected pixels of the same color to a given color.
-</div>
+  <%= explanation do %>
+    Given a pixel coordinate in an m x n image, convert all
+    connected pixels of the same color to a given color.
+  <% end %>
+
+  <%= code_inline do %>
+    Input:   image = 1 1 1
+                     0 1 1
+                     0 0 1
+             coordinates = [0, 0]
+             color = 2
+    Output:  2 2 2
+             0 2 2
+             0 0 2
+  <% end %>
+</section>
+
+<%= solutions_table do %>
+  Recursion            O(2^n)   O(n)
+  Memoization          O(n)     O(n)
+  Dynamic programming  O(n)     O(n)
+  Iterative            O(n)     O(1)
+<% end %>
 
 <section class="solutions">
   <section class="solution">

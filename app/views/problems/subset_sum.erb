@@ -1,14 +1,24 @@
-<h1>Subset sum</h1>
+<section class="problem">
+  <h1>Subset sum</h1>
 
-<div>
-  Given a set of numbers, determine if a subset of numbers
-  exist that add up to a number k
-</div>
+  <%= explanation do %>
+    Given a set of numbers, determine if a subset of numbers
+    add up to a number k
+  <% end %>
 
-<%= solutions_table do %>
-  Brute force           O(2^nn)   O(n)
-  Dynamic programming   O(nS)     O(nS)
-<% end %>
+  <%= code_inline do %>
+    Input:   numbers = [1, 2, 3], k = 6
+    Output:  true
+
+    Input:   numbers = [1, 2, 3], k = 0
+    Output:  false
+  <% end %>
+
+  <%= solutions_table do %>
+    Brute force           O(2^nn)   O(1)
+    Dynamic programming   O(nS)     O(nS)
+  <% end %>
+</section>
 
 <section class="solutions">
   <section class="solution">
@@ -20,11 +30,13 @@
       * To generate all possible subsets
         * Each element in the set can either exist in the subset or not
         * So there are 2^n possibilities
+        * If you create a subset before calculating the sum, that's O(n) space
+        * But if you calculate the sum on the fly, that's O(1) space
     <% end %>
 
     <%= complexity_table do %>
       Time   O(2^nn)  Each of 2^n subsets requires O(n) time to check
-      Space  O(1)
+      Space  O(1)     The sum of numbers in each subset
     <% end %>
   </section>
 
