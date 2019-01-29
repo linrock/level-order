@@ -1,47 +1,25 @@
-// homepage intro
-.intro {
-  margin: 30px 0;
-}
+header.home-header {
+  padding: 30px 0;
+  background: #1A1A1A;
 
-section.home-sections {
-  margin-bottom: 80px;
-
-  h3 {
-    margin: 0;
+  h1 {
+    font-size: 35px;
+    margin-bottom: 0px;
   }
-}
-
-section.home-section {
-  display: flex;
-  margin-bottom: 40px;
-
-  .link-list {
-    width: 200px;
-  }
-}
-
-header.problems-section-header {
-  padding-bottom: 15px;
-  border-bottom: 1px solid #cecece;
-  margin-bottom: 40px;
 
   h2 {
-    font-size: 35px;
-    margin-bottom: 5px;
+    font-size: 16px;
+    font-weight: normal;
   }
 }
 
-section.problems-subsection {
-  margin-bottom: 30px;
-
-  h4 {
-    font-weight: normal;
-    margin: 10px 0 25px;
-  }
+section.problems-list {
+  margin: 50px 0;
 
   .problem {
     display: flex;
-    margin: 5px 0;
+    line-height: 1.5em;
+    margin: 20px 0;
 
     a {
       width: 200px;

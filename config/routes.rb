@@ -3,6 +3,8 @@
 Rails.application.routes.draw do
   root to: "pages#home"
 
+  get "/beta" => "pages#beta"
+
   # pages
   get "/algorithms" => "pages#algorithms"
   get "/data-structures" => "pages#data_structures"

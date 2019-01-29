@@ -15,6 +15,10 @@ class PagesController < ApplicationController
   end
 
   def home
+  end
+
+  # Works-in-progress
+  def beta
     @algorithms = directory_templates("app/views/algorithms/")
     @data_structures = directory_templates("app/views/data_structures/")
     @problems = directory_templates("app/views/problems/")

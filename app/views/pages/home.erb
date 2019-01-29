@@ -1,228 +1,44 @@
-<div class="container">
-  <div class="intro">
-    Algorithms, data structures, and code problems.  <br>
-    All with code examples, visual explanations,
-    and links to great resources.
+<header class="home-header">
+  <div class="container">
+    <h1>Algorithm problems</h1>
+    <h2>Explanations with code solutions and time/space complexity analysis</h2>
   </div>
+</header>
 
-  <section class="home-sections">
-    <h3><a href="/algorithms">Algorithms</a></h3>
-    <section class="home-section algorithms">
-      <ul>
-        <% @algorithms.each do |algo| %>
-          <li>
-            <a href="/<%= algo %>">
-             <%= algo.gsub(/-/, ' ').capitalize %>
-            </a>
-          </li>
-        <% end %>
-      </ul>
-    </section>
+<div class="container">
+  <section class="problems-list">
+    <div class="problem">
+      <a href="/problems/fibonacci-numbers">
+        Fibonacci numbers
+      </a>
+      <div class="description">Calculate the n-th fibonacci number</div>
+    </div>
 
-    <h3><a href="/data-structures">Data structures</a></h3>
-    <section class="home-section data-structures">
-      <div class="link-list">
-        <h4>Basics</h4>
-        <ul>
-          <li><a href="/linked-list">Linked list</a></li>
-          <li><a href="/stack">Stack</a></li>
-          <li><a href="/queue">Queue</a></li>
-          <li><a href="/hash-table">Hash table</a></li>
-          <li><a href="/graph">Graph</a></li>
-        </ul>
+    <div class="problem">
+      <a href="/problems/longest-palindromic-substring">
+        Longest palindromic substring
+      </a>
+      <div class="description">
+        Find the longest substring that reads the same, forward and backwards
       </div>
+    </div>
 
-      <div class="link-list">
-        <h4>Trees</h4>
-        <ul>
-          <li><a href="/binary-tree">Binary tree</a></li>
-          <li><a href="/binary-search-tree">Binary search tree</a></li>
-          <li><a href="/binary-heap">Binary heap</a></li>
-          <li><a href="/disjoint-set">Disjoint set</a></li>
-          <li><a href="/trie">Trie</a></li>
-        </ul>
+    <div class="problem">
+      <a href="/problems/kth-largest-element">
+        Kth largest element
+      </a>
+      <div class="description">
+        Find the k-th largest number in an unsorted array
       </div>
-    </section>
+    </div>
 
-    <h3><a href="/problems">Problems</a></h3>
-    <section class="home-section problems">
-      <ul>
-        <% @problems.each do |problem| %>
-          <li>
-            <a href="/problems/<%= problem %>">
-              <%= problem.gsub(/-/, ' ').capitalize %>
-            </a>
-          </li>
-        <% end %>
-      </ul>
-    </section>
-
-    <section class="problems-section">
-      <header class="problems-section-header">
-        <h2>Topics</h2>
-        <div>
-          Problems related to the given topic
-        </div>
-      </header>
-
-      <section class="problems-subsection">
-        <h3>Graphs</h3>
-
-        <div class="problem">
-          <a href="/problems/network-delay-time">Network delay time</a>
-          <div class="description">Find the time it takes for a signal to propagate to all vertices in a graph</div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/bipartite-graph">Bipartite graph</a>
-          <div class="description">
-            Divide vertices into two sets so that every edge only connects vertices
-            between the two sets
-          </div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/flood-fill">Flood fill</a>
-          <div class="description">Change the color of all pixels connected to a target pixel to another color</div>
-        </div>
-      </section>
-
-      <section class="problems-subsection">
-        <h3>Arrays</h3>
-
-        <div class="problem">
-          <a href="/problems/longest-increasing-subsequence">Longest increasing subsequence</a>
-          <div class="description">The numbers in a subsequence don't have to be next to each other in the array</div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/longest-increasing-subsequence">Longest increasing substring</a>
-          <div class="description">The letters in the substring must be next to each other</div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/longest-palindromic-substring">Longest palindromic substring</a>
-          <div class="description">The longest substring that reads the same, forward and backwards</div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/longest-common-subsequence">Longest common subsequence</a>
-          <div class="description">The longest sequence of numbers that show up in both arrays</div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/longest-common-subsequence">Maximum subarray sum</a>
-          <div class="description">The maximum sum of numbers from any continous set of numbers in an array</div>
-        </div>
-      </section>
-    </section>
-
-    <section class="problems-section">
-      <header class="problems-section-header">
-        <h2>Methods</h2>
-        <div>
-          Problems for which the listed method leads to an optimal solution
-        </div>
-      </header>
-
-      <section class="problems-subsection">
-        <h3>Dynamic programming</h3>
-        <h4>
-          Efficient solutions can be found by finding and reusing
-          the solutions to overlapping sub-problems
-        </h4>
-
-        <div class="problem">
-          <a href="/problems/fibonacci-numbers">Fibonacci numbers</a>
-          <div class="description">Calculate the n-th fibonacci number</div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/edit-distance">Edit distance</a>
-          <div class="description">
-            The minimum number of edits needed to convert one string to another
-          </div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/knapsack-problem">Knapsack problem</a>
-          <div class="description">
-            Maximize the value of items that can fit in a knapsack with a weight limit
-          </div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/subset-sum">Subset sum</a>
-          <div class="description">
-            Given a set of numbers, does a subset of numbers add up to a given sum?
-          </div>
-        </div>
-      </section>
-
-      <section class="problems-subsection">
-        <h3>Backtracking</h3>
-        <h4>
-          Depth-first search through the solution space, backtracking
-          to a checkpoint when a path is found to not lead to a solution
-        </h4>
-
-        <div class="problem">
-          <a href="/problems/n-queens">N Queens</a>
-          <div class="description">
-            Place N queens on an NxN board such that no two queens attack the same squares
-          </div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/knights-tour">Knight's tour</a>
-          <div class="description">
-            Find a sequence of knight moves that visit all squares of a chessboard only once
-          </div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/sudoku-solver">Sudoku solver</a>
-          <div class="description">
-            A program that solves Sudoku puzzles
-          </div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/rat-in-a-maze">Rat in a maze</a>
-          <div class="description">
-            Find a way to make it through a maze
-          </div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/hamiltonian-cycle">Hamiltonian cycle</a>
-          <div class="description">
-            Given a graph, find all the ways to visit all vertices exactly once
-          </div>
-        </div>
-      </section>
-
-      <section class="problems-subsection">
-        <h3>Greedy</h3>
-        <h4>
-          Greedily making the best-looking choices leads to an optimal
-          solution
-        </h4>
-
-        <div class="problem">
-          <a href="/problems/minimum-spanning-trees">Minimum spanning trees</a>
-          <div class="description">
-            Build a tree from the edges of a graph with a minimal total edge weight
-          </div>
-        </div>
-
-        <div class="problem">
-          <a href="/problems/huffman-coding">Huffman coding</a>
-          <div class="description">
-            A lossless data compression algorithm
-          </div>
-        </div>
-      </section>
-    </section>
+    <div class="problem">
+      <a href="/problems/maximum-subarray-sum">
+        Maximum subarray sum
+      </a>
+      <div class="description">
+        Find the maximum sum of any continous sequence of numbers in an array
+      </div>
+    </div>
   </section>
 </div>
