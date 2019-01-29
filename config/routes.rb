@@ -11,20 +11,11 @@ Rails.application.routes.draw do
   get "/problems" => "pages#problems"
   get "/about" => "pages#about"
 
-  # algorithms
-  prefix = "app/views/algorithms/"
-  Dir.glob("#{prefix}*.erb").each do |filename|
-    ds = filename.gsub(/#{prefix}/, '').gsub(/\.erb/, '')
-    get "/#{ds.gsub(/_/, '-')}" => "algorithms##{ds}"
+  %w( algorithms data_structures problems ).each do |type|
+    prefix = "app/views/#{type}/"
+    Dir.glob("#{prefix}*.erb").each do |filename|
+      ds = filename.gsub(/#{prefix}/, '').gsub(/\.erb/, '')
+      get "/#{ds.gsub(/_/, '-')}" => "#{type}##{ds}"
+    end
   end
-
-  # data structures
-  prefix = "app/views/data_structures/"
-  Dir.glob("#{prefix}*.erb").each do |filename|
-    ds = filename.gsub(/#{prefix}/, '').gsub(/\.erb/, '')
-    get "/#{ds.gsub(/_/, '-')}" => "data_structures##{ds}"
-  end
-
-  # problems
-  get "/problems/:problem" => "problems#show"
 end
