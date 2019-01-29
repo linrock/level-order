@@ -1,7 +1,7 @@
 <h1>Kth largest element in an array</h1>
 
 <section class="problem">
-  <div>Find the kth largest element in an array of numbers</div>
+  <div>Find the kth largest element in an array of values</div>
 
   <pre>
     [1, 8, 6, 10, 2]
@@ -12,11 +12,11 @@
 </section>
 
 <%= solutions_table do %>
-  Sorting             O(n log n)       O(1)
+  Sorting             O(n log n)       O(1) to O(n)
   Min-heap            O(n + k log n)   O(n)
   Max-heap            O(n log k)       O(k)
-  Quickselect         O(n) to O(n^2)   O(1)
-  Median of medians   O(n)             O(1)
+  Quickselect         O(n) to O(n^2)   O(log n)
+  Median of medians   O(n)             O(log n)
 <% end %>
 
 <section class="solutions">
@@ -34,7 +34,7 @@
     <%= rb_code "code/problems/kth_largest_element/s1.rb" %>
     <%= complexity_table do %>
       Time   O(n log n)
-      Space  O(1)        In-place sorting
+      Space  O(1) to O(n)  Varies depending on the sorting algorithm
     <% end %>
   </section>
 
