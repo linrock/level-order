@@ -9,6 +9,12 @@
   <pre>abc - not a palindrome</pre>
   <pre>aba - is a palindrome</pre>
   <br>
+
+  <%= rb_code_inline do %>
+    s = "bbbabcdcbaccc"
+    longest_palindromic_substring(s) == "abcdcba"
+  <% end %>
+
   <h3>Example</h3>
   <pre>eddbacdaadcab<span style="color: orange">ccceeeeeccc</span>d</pre>
   <div>

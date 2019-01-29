@@ -1,0 +1,6 @@
+<% formatter = Rouge::Formatters::HTML.new
+   lexer = Rouge::Lexers::Ruby.new
+   text = yield.strip.split(/\n/).map(&:strip).join("\n")
+   code = formatter.format(lexer.lex(text)) %>
+
+<pre class="highlight"><%= code.html_safe %></pre>

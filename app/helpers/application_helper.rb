@@ -14,6 +14,12 @@ module ApplicationHelper
     %(<pre class="highlight">#{code}</pre>).html_safe
   end
 
+  def rb_code_inline(&block)
+    render layout: 'partials/ruby_code' do
+      block.call
+    end
+  end
+
   # data structure time of operations + space
   def data_structure_complexity_table(&block)
     render layout: 'partials/data_structure_complexity_table' do

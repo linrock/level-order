@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/algorithms" => "pages#algorithms"
   get "/data-structures" => "pages#data_structures"
   get "/problems" => "pages#problems"
+  get "/about" => "pages#about"
 
   # algorithms
   prefix = "app/views/algorithms/"

@@ -1,5 +1,49 @@
 <h1>Subset sum</h1>
 
 <div>
-  Given a set of numbers, find all subsets that add up to a number k
+  Given a set of numbers, determine if a subset of numbers
+  exist that add up to a number k
 </div>
+
+<%= solutions_table do %>
+  Brute force           O(2^nn)   O(n)
+  Dynamic programming   O(nS)     O(nS)
+<% end %>
+
+<section class="solutions">
+  <section class="solution">
+    <h2>Solution 1: Brute force</h2>
+    <%= solution_explanation do %>
+      * Loop over all possible subsets
+      * For each subset, sum up the values and see if it matches k
+        * At most, you'll sum up n numbers for each subset
+      * To generate all possible subsets
+        * Each element in the set can either exist in the subset or not
+        * So there are 2^n possibilities
+    <% end %>
+
+    <%= complexity_table do %>
+      Time   O(2^nn)  Each of 2^n subsets requires O(n) time to check
+      Space  O(1)
+    <% end %>
+  </section>
+
+  <section class="solution">
+    <h2>Solution 2: Dynamic programming</h2>
+    <%= solution_explanation do %>
+      * Create a 2D array
+      * Use an outer loop to loop over all the numbers in the set
+      * Use an inner loop to loop over the range of sums
+      * For each number in the set, true if
+        * The number is equal to s
+        * A subset of numbers without this number is equal to s
+        * A subset of numbers adds up to (s - number)
+
+    <% end %>
+
+    <%= complexity_table do %>
+      Time   O(nS)  Check all numbers and range of sums once
+      Space  O(nS)  2D array of true/false values
+    <% end %>
+  </section>
+</section>
