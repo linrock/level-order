@@ -1,7 +1,15 @@
-<h1>Longest common substring</h1>
+<section class="problem">
+  <h1>Longest common substring</h1>
+
+  <%= explanation do %>
+    Given two strings, find the longest
+    substring contained in both strings.
+  <% end %>
+</section>
 
 <% solutions_table do %>
-  Brute force          O(n^3)  O(n)
-  Dynamic programming  O(n^2)  O(n^2)
-  Suffix tree          O(n)    O(n)
+  Brute force           O(mn max(m,n))  O(max(m,n))
+  Set inclusion         O(m^2 + n^2)    O(m^2 + n^2)
+  Dynamic programming   O(mn)           O(mn)
+  Suffix tree           O(m + n)        O(m + n)
 <% end %>

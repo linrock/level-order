@@ -1,5 +1,6 @@
 <section class="problem">
-<h1>Longest common subsequence</h1>
+  <h1>Longest common subsequence</h1>
+
   <%= explanation do %>
     Given two strings, find the longest
     subsequence contained in both strings.
@@ -12,14 +13,14 @@
   <% end %>
 </section>
 
-<%= solutions_table do %>
+<%= solutions_table([:bad, :good]) do %>
   Brute force            O(2^m n)   O(1)
-  Dynamic programming    O(mn)        O(mn)
+  Dynamic programming    O(mn)      O(mn)
 <% end %>
 
 <section class="solutions">
   <div class="solution">
-    <h2>Solution 1: Brute force</h2>
+    <h2 class="bad">Solution 1: Brute force</h2>
     <%= solution_explanation do %>
 
       * Consider all possible sequences of one string
@@ -36,7 +37,7 @@
   </div>
 
   <div class="solution">
-    <h2>Solution 2: Dynamic programming</h2>
+    <h2 class="good">Solution 2: Dynamic programming</h2>
     <%= solution_explanation do %>
 
       * Compare every prefix of one string to the other

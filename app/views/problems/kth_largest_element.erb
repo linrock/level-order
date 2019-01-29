@@ -1,17 +1,19 @@
-<h1>Kth largest element in an array</h1>
-
 <section class="problem">
-  <div>Find the kth largest element in an array of values</div>
+  <h1>Kth largest element</h1>
 
-  <pre>
+  <%= explanation do %>
+    Find the k-th largest element in an array of values
+  <% end %>
+
+  <%= code_inline do %>
     [1, 8, 6, 10, 2]
 
     When k = 1, the 1st largest element is 10
     When k = 3, the 3rd largest element is 6
-  </pre>
+  <% end %>
 </section>
 
-<%= solutions_table do %>
+<%= solutions_table([:bad, :average, :average, :good, :great]) do %>
   Sorting             O(n log n)       O(1) to O(n)
   Min-heap            O(n + k log n)   O(n)
   Max-heap            O(n log k)       O(k)
@@ -21,7 +23,7 @@
 
 <section class="solutions">
   <section class="solution">
-    <h2>Solution 1: Sorting</h2>
+    <h2 class="bad">Solution 1: Sorting</h2>
 
     <%= solution_explanation do %>
       Sort the input elements and find the k-th largest element
@@ -39,7 +41,7 @@
   </section>
 
   <section class="solution">
-    <h2>Solution 2: Max-heap</h2>
+    <h2 class="average">Solution 2: Max-heap</h2>
 
     <%= solution_explanation do %>
       We can put all the elements in the array into a max-heap
@@ -66,7 +68,7 @@
   </section>
 
   <section class="solution">
-    <h2>Solution 3: Min-heap</h2>
+    <h2 class="average">Solution 3: Min-heap</h2>
 
     <%= solution_explanation do %>
       Alternatively, we can use a min heap to save space and
@@ -90,7 +92,7 @@
   </section>
 
   <section class="solution">
-    <h2>Solution 4: Quickselect</h2>
+    <h2 class="good">Solution 4: Quickselect</h2>
 
     <%= solution_explanation do %>
       By only partially sorting the array, we can avoid doing
@@ -99,13 +101,13 @@
     <% end %>
 
     <%= complexity_table do %>
-      Time   O(n)  Worst case O(n^2) if you get unlucky
-      Space  O(1)  In-place swapping of elements
+      Time   O(n) to O(n^2)  Worst case O(n^2) if you get unlucky
+      Space  O(log n)        Recursion stack depth
     <% end %>
   </section>
 
   <section class="solution">
-    <h2>Solution 5: Median of medians</h2>
+    <h2 class="great">Solution 5: Median of medians</h2>
 
     <%= solution_explanation do %>
       The previous solution used quickselect with random pivots, which
@@ -118,7 +120,7 @@
 
     <%= complexity_table do %>
       Time   O(n)
-      Space  O(1)  In-place swapping of elements
+      Space  O(log n)  Recursion stack depth
     <% end %>
   </section>
 </section>

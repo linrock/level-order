@@ -16,7 +16,7 @@
   <% end %>
 </section>
 
-<%= solutions_table do %>
+<%= solutions_table([:bad, :average, :good, :great]) do %>
   Brute force            O(n^3)   O(1)
   Dynamic programming    O(n^2)   O(n^2)
   Central expansion      O(n^2)   O(1)
@@ -25,7 +25,7 @@
 
 <section class="solutions">
   <div class="solution">
-    <h2>Solution 1: Brute force</h2>
+    <h2 class="bad">Solution 1: Brute force</h2>
 
     <%= solution_explanation do %>
       Use two loops to iterate over all possible substrings:
@@ -51,7 +51,7 @@
   </div>
 
   <div class="solution">
-    <h2>Solution 2: Dynamic programming</h2>
+    <h2 class="average">Solution 2: Dynamic programming</h2>
 
     <%= solution_explanation do %>
       This improves the runtime of the brute force solution by checking
@@ -80,7 +80,7 @@
   </div>
 
   <div class="solution">
-    <h2>Solution 3: Central expansion</h2>
+    <h2 class="good">Solution 3: Central expansion</h2>
 
     <%= solution_explanation do %>
       This improves on the previous two solutions by iterating
@@ -112,7 +112,7 @@
   </div>
 
   <div class="solution">
-    <h2>Solution 4: Manacher's algorithm</h2>
+    <h2 class="great">Solution 4: Manacher's algorithm</h2>
 
     <%= solution_explanation do %>
       This improves over the central expansion algorithm by skipping

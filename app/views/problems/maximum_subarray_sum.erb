@@ -1,11 +1,13 @@
-<h1>Maximum subarray sum</h1>
+<section class="problem">
+  <h1>Maximum subarray sum</h1>
 
-<div>
-  Given an array of numbers, return the maximum sum of
-  any continous subarray of numbers.
-</div>
+  <%= explanation do %>
+    Given an array of numbers, return the maximum sum of
+    any continous subarray of numbers.
+  <% end %>
+</section>
 
-<%= solutions_table do %>
+<%= solutions_table([:bad, :average, :good, :great]) do %>
   Brute force          O(n^2)      O(1)
   Divide and conquer   O(n log n)  O(n)
   Dynamic programming  O(n)        O(n)
@@ -14,7 +16,7 @@
 
 <section class="solutions">
   <section class="solution">
-    <h2>Solution 1: Brute force</h2>
+    <h2 class="bad">Solution 1: Brute force</h2>
     <div class="explanation">
       Use two loops to iterate over all possible subarrays.
       The outer loop iterates over all numbers in the array
@@ -25,10 +27,14 @@
     </div>
 
     <%= rb_code "code/problems/maximum_subarray_sum/s1.rb" %>
+    <%= complexity_table do %>
+      Time   O(n^2)
+      Space  O(1)
+    <% end %>
   </section>
 
   <section class="solution">
-    <h2>Solution 2: Divide and conquer</h2>
+    <h2 class="average">Solution 2: Divide and conquer</h2>
     <%= solution_explanation do %>
       The maximum subarray sum can exist in 1 of 3 places:
 
@@ -40,25 +46,37 @@
       subarrays and returns the highest sum found.
     <% end %>
     <%= rb_code "code/problems/maximum_subarray_sum/s2.rb" %>
+    <%= complexity_table do %>
+      Time   O(n log n)
+      Space  O(n)
+    <% end %>
   </section>
 
   <section class="solution">
-    <h2>Solution 3: Dynamic programming</h2>
+    <h2 class="good">Solution 3: Dynamic programming</h2>
     <div class="explanation">
       Each value in the max_sums array is the maximum possible
       subarray sum in a subarray that includes numbers[i]
     </div>
     <%= rb_code "code/problems/maximum_subarray_sum/s3.rb" %>
+    <%= complexity_table do %>
+      Time   O(n)
+      Space  O(n)
+    <% end %>
   </section>
 
   <section class="solution">
-    <h2>Solution 4: Kadane's algorithm</h2>
+    <h2 class="great">Solution 4: Kadane's algorithm</h2>
     <div class="explanation">
       This is effectively the dynamic programming approach above
       without an additional array, since we only need one cumulative
       sum.
     </div>
     <%= rb_code "code/problems/maximum_subarray_sum/s4.rb" %>
+    <%= complexity_table do %>
+      Time   O(n)
+      Space  O(1)
+    <% end %>
   </section>
 </section>
 
