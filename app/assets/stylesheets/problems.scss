@@ -1,4 +1,4 @@
-// uniform character widths
+// example inputs/outputs and explanations
 pre.code {
   padding: 20px;
   line-height: 17px;
@@ -17,13 +17,8 @@ section.problem {
   line-height: 1.5em;
   margin-top: 60px;
 
-  h1 {
-    font-size: 32px;
-  }
-
-  pre {
-    margin: 35px 0;
-  }
+  h1  { font-size: 32px; }
+  pre { margin: 35px 0;  }
 }
 
 // table of solutions
@@ -40,9 +35,7 @@ table.solutions {
   td {
     padding-right: 35px;
 
-    &:first-child {
-      color: #FFBD00;
-    }
+    &:first-child { color: #FFBD00; }
   }
 }
 
@@ -64,23 +57,24 @@ section.solutions {
   }
 }
 
-// table of time and space complexities
+// table of time and space complexities for solutions
 table.complexity {
   margin: 10px 0;
 
   td {
     padding-right: 30px;
 
-    &:first-child {
-      opacity: 0.5;
-    }
-
-    &:last-child {
-      padding-right: 0;
-    }
+    &:first-child { opacity: 0.5;     }
+    &:last-child  { padding-right: 0; }
   }
 }
 
+// for problems divided into multiple parts
 article.problem-part {
   margin-bottom: 80px;
+}
+
+// resources section at the bottom of the page
+section.resources {
+  line-height: 1.5em;
 }
