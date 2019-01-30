@@ -1,15 +1,19 @@
 <section class="problem">
   <h1>Longest common subsequence</h1>
+  <h2>Part 1</h2>
 
   <%= explanation do %>
-    Given two strings, find the longest
-    subsequence contained in both strings.
+    Given two strings, find the length of the
+    longest subsequence common to both strings.
+    Items in the subsequence do not have to be
+    next to each other.
   <% end %>
 
   <%= code_inline do %>
     Input:   s1 = "aabbcc"
              s2 = "axbxcx"
-    Output:  "abc"
+    Output:  3
+    Note:    "abc" is the longest common subsequence
   <% end %>
 </section>
 
@@ -48,6 +52,71 @@
     <% end %>
 
     <%= rb_code "code/problems/longest_common_subsequence/s2.rb" %>
+    <%= complexity_table do %>
+      Time   O(mn)  Two loops of m and n time
+      Space  O(mn)  2D array of longest common subsequence lengths
+    <% end %>
+  </div>
+</section>
+
+<section class="problem">
+  <h2>Part 2</h2>
+
+  <%= explanation do %>
+    Find the longest common subsequence common
+    to both strings. If more than one subsequence
+    share the same length, return any of them.
+  <% end %>
+
+  <%= code_inline do %>
+    Input:   s1 = "aabbcc"
+             s2 = "axbxcx"
+    Output:  "abc"
+  <% end %>
+</section>
+
+<%= solutions_table([:bad, :average, :good]) do %>
+  Brute force             O(2^m n)          O(min(m,n))
+  Dynamic programming 1   O(mn * min(m,n))  O(mn * min(m,n))
+  Dynamic programming 2   O(mn)             O(mn)
+<% end %>
+
+<section class="solutions">
+  <div class="solution">
+    <h2 class="bad">Solution 1: Brute force</h2>
+    <%= solution_explanation do %>
+      Similar to solution 1 in part 1, consider all subsequences.
+      However, instead of saving the length of the longest
+      subsequence seen, save the longest sequence itself.
+    <% end %>
+    <%= complexity_table do %>
+      Time   O(n * 2^m)   m comparisons for each of 2^n possible subsequences
+      Space  O(min(m,n))  Length can't exceed the shorter of the two strings
+    <% end %>
+  </div>
+
+  <div class="solution">
+    <h2 class="average">Solution 2: Dynamic programming 1</h2>
+    <%= solution_explanation do %>
+      Similar to solution 2 in part 1, iterate over all prefixes
+      of the two strings. However, instead of saving the length of
+      the longest subsequence seen, save a copy of the longest sequence
+      itself.
+    <% end %>
+    <%= complexity_table do %>
+      Time   O(mn * min(m,n))  Two loops of m and n time with array copying
+      Space  O(mn * min(m,n))  2D array of longest common subsequences
+    <% end %>
+  </div>
+
+  <div class="solution">
+    <h2 class="good">Solution 3: Dynamic programming 2</h2>
+    <%= solution_explanation do %>
+      Calculate the 2D array of longest subsequence lengths, exactly
+      like in solution 2 in part 1. Now that we have the array of lengths,
+      we can traverse the array in O(m + n) time to generate a longest
+      subsequence.
+    <% end %>
     <%= complexity_table do %>
       Time   O(mn)  Two loops of m and n time
       Space  O(mn)  2D array of longest common subsequence lengths
