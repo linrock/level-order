@@ -104,14 +104,34 @@
     <h2 class="good">Solution 4: Quickselect</h2>
 
     <%= solution_explanation do %>
+      Quickselect is a popular selection algorithm that finds
+      the kth-smallest element in O(n) time on average.
+
       By only partially sorting the array, we can avoid doing
-      unnecessary work and find the kth-largest element in O(n)
-      time on average by using a selection algorithm.
+      unnecessary work.
+
+      To find the k-th largest value:
+
+      * Note that the kth-smallest value is the (n-k+1)th largest
+        * You know the array index of the value you're looking for
+      * Apply quickselect, which works like this:
+        * Choose a random element in the array as a pivot
+        * Move every element smaller than the pivot to the left of the pivot
+        * You now have an array where
+            * You know the index of the pivot
+            * The pivot is in the correct sorted position
+            * Every value left of the pivot is smaller
+            * Every value right of the pivot is larger than or equal to it
+        * Compare the index of the pivot to the index you're looking for
+            * If it's equal, you've found the kth-largest value
+            * If it's smaller, quickselect the upper partition of the array
+            * If it's larger, quickselect the bottom partition of the array
     <% end %>
 
+    <%= rb_code "code/problems/kth_largest_element/s4.rb" %>
     <%= complexity_table do %>
-      Time   O(n) to O(n^2)  Worst case O(n^2) if you get unlucky
-      Space  O(log n)        Recursion stack depth
+      Time   O(n) to O(n^2)    Worst case O(n^2) if you get unlucky
+      Space  O(log n) to O(n)  Recursion stack depth, worst case O(n)
     <% end %>
   </section>
 
@@ -120,10 +140,13 @@
 
     <%= solution_explanation do %>
       The previous solution used quickselect with random pivots, which
-      randomly has poor worst-case if you get unlucky. By improving the
-      way that pivots are chosen, we eliminate the possibility of running
-      into the worst-case performance scenario. The tradeoff is that we'll
-      do slightly more work on average, but still in linear time.
+      randomly has poor worst-case if you get unlucky and select a bunch
+      of bad pivots.
+
+      By improving the way that pivots are chosen, we eliminate the
+      possibility of running into the worst-case performance scenario.
+      The tradeoff is that we'll do slightly more work on average, but still
+      in linear time.
     <% end %>
 
     <%= complexity_table do %>
@@ -139,6 +162,9 @@
 
   Wikipedia - Quickselect
   https://en.wikipedia.org/wiki/Quickselect
+
+  Wikipedia - Median of medians
+  https://en.wikipedia.org/wiki/Median_of_medians
 
   Wikipedia - Floyd-Rivest algorithm
   https://en.wikipedia.org/wiki/Floyd%E2%80%93Rivest_algorithm
