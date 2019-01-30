@@ -1,8 +1,8 @@
-require 'min_heap'
+require 'max_heap'
 
-RSpec.describe MinHeap do
+RSpec.describe MaxHeap do
   let(:n) { 200 }
-  let(:heap) { MinHeap.new((1 .. n).to_a.shuffle) }
+  let(:heap) { MaxHeap.new((1 .. n).to_a.shuffle) }
   let(:heap_values) { heap.instance_variable_get(:@heap) }
 
   def is_heapified?
@@ -11,9 +11,9 @@ RSpec.describe MinHeap do
       left = heap_values[2*i+1]
       right = heap_values[2*i+2]
       if left && right
-        value <= left && value <= right
+        value >= left && value >= right
       elsif !right
-        value <= left
+        value >= left
       else
         true
       end
@@ -29,7 +29,7 @@ RSpec.describe MinHeap do
     expect(heap_values.length).to eq(n)
     4.times do
       (n/4).times do
-        expect(heap.min).to eq(heap_values.min)
+        expect(heap.max).to eq(heap_values.max)
         heap.pop
       end
       expect(is_heapified?).to eq(true)
@@ -37,20 +37,10 @@ RSpec.describe MinHeap do
     expect(heap.empty?).to eq(true)
   end
 
-  it 'maintains heap order when inserting' do
-    expect(heap_values.length).to eq(n)
-    4.times do
-      (n/4).times do
-        heap.insert((rand*100).to_i)
-      end
-      expect(is_heapified?).to eq(true)
-    end
-  end
-
   it 'does not mutate input array' do
     values = [1,2,3,4,5]
     n = values.length
-    heap = MinHeap.new(values)
+    heap = MaxHeap.new(values)
     heap.pop
     expect(values.length).to eq(n)
   end

@@ -1,7 +1,7 @@
 class MinHeap
 
   def initialize(values = [])
-    @heap = values
+    @heap = values.dup
     heapify unless empty?
   end
 
