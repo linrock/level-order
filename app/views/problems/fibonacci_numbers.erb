@@ -14,14 +14,35 @@
 
     Input:   12
     Output:  144
+
+    Input:   200
+    Output:  280571172992510140037611932413038677189525
+  <% end %>
+
+  <%= explanation do %>
+    Since the input to the fibonacci functions is a number, we have to consider
+    the number of bits needed to represent the number when calculating time/space
+    complexities.
+
+    The number of bits needed to represent the n-th fibonacci number scales
+    linearly with n, so we need to consider an extra O(n) factor when adding
+    and storing fibonacci numbers.
+
+    For reference:
+
+    * The 10th fibonacci number has 6 bits
+    * The 100th fibonacci number has 68 bits
+    * The 1,000th fibonacci number has 693 bits
+    * The 10,000th fibonacci number has 6,941 bits
+
   <% end %>
 </section>
 
 <%= solutions_table([:bad, :average, :average, :good]) do %>
-  Recursion            O(2^n)   O(n)
-  Memoization          O(n)     O(n)
-  Dynamic programming  O(n)     O(n)
-  Iterative            O(n)     O(1)
+  Recursion            O(2^n n)    O(n^2)
+  Memoization          O(n^2)      O(n^2)
+  Dynamic programming  O(n^2)      O(n^2)
+  Iterative            O(n^2)      O(n)
 <% end %>
 
 <section class="solutions">
@@ -31,6 +52,10 @@
     <div class="explanation">
     </div>
     <%= rb_code "code/problems/fibonacci_numbers/s1.rb" %>
+    <%= complexity_table do %>
+      Time   O(2^n n)  2x recursive calls at each of O(n) levels
+      Space  O(n^2)   O(n) max stack depth with O(n) bits for the nth number
+    <% end %>
   </section>
 
   <section class="solution">
@@ -39,6 +64,10 @@
     <div class="explanation">
     </div>
     <%= rb_code "code/problems/fibonacci_numbers/s2.rb" %>
+    <%= complexity_table do %>
+      Time   O(n^2)   O(n) stack depth adding O(n) bit numbers
+      Space  O(n^2)   n-sized array of numbers with O(n) bits per number
+    <% end %>
   </section>
 
   <section class="solution">
@@ -47,6 +76,10 @@
     <div class="explanation">
     </div>
     <%= rb_code "code/problems/fibonacci_numbers/s3.rb" %>
+    <%= complexity_table do %>
+      Time   O(n^2)   O(n) loop adding O(n) bit numbers at each iteration
+      Space  O(n^2)   n-size array of numbers with O(n) bits per number
+    <% end %>
   </section>
 
   <section class="solution">
@@ -55,10 +88,14 @@
     <div class="explanation">
     </div>
     <%= rb_code "code/problems/fibonacci_numbers/s4.rb" %>
+    <%= complexity_table do %>
+      Time   O(n^2)   O(n) loop adding O(n) bit numbers at each iteration
+      Space  O(n)     Two integers each containing O(n) bits
+    <% end %>
   </section>
 </section>
 
-<% resources_section do %>
+<%= resources_section do %>
   Fibonacci numbers
   https://en.wikipedia.org/wiki/Fibonacci_number
 <% end %>
