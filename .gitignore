@@ -27,3 +27,6 @@
 /node_modules
 yarn-debug.log*
 .yarn-integrity
+
+# Ignore DS_Store files
+.DS_Store
