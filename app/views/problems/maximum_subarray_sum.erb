@@ -17,19 +17,22 @@
 <section class="solutions">
   <section class="solution">
     <h2 class="bad">Solution 1: Brute force</h2>
-    <div class="explanation">
-      Use two loops to iterate over all possible subarrays.
-      The outer loop iterates over all numbers in the array
-      and decides where the subarray starts. The inner loop
-      decides where the subarray ends. At each step, calculate
-      the sum of numbers in the current subarray and compare
-      with the current max sum to find the overall max sum.
-    </div>
+    <%= explanation do %>
+      To find the maximum subarray sum:
+
+      * Use two loops to iterate over all O(n^2) possible subarrays
+      * The outer loop decides where the subarray starts
+      * The inner loop decides where the subarray ends
+      * After each inner loop ends, you have the sum of the current subarray
+      * This sum is the new max sum if it's higher than the current max sum
+
+      The max sum after checking all subarrays is the maximum subarray sum
+    <% end %>
 
     <%= rb_code "code/problems/maximum_subarray_sum/s1.rb" %>
     <%= complexity_table do %>
-      Time   O(n^2)
-      Space  O(1)
+      Time   O(n^2)  Checking all O(n^2) possible subarrays
+      Space  O(1)    The sum and max sum
     <% end %>
   </section>
 
@@ -47,8 +50,8 @@
     <% end %>
     <%= rb_code "code/problems/maximum_subarray_sum/s2.rb" %>
     <%= complexity_table do %>
-      Time   O(n log n)
-      Space  O(n)
+      Time   O(n log n)   Stack depth of O(log n) each checking O(n) values
+      Space  O(log n)     Max stack depth of O(log n)
     <% end %>
   </section>
 
@@ -57,11 +60,11 @@
     <div class="explanation">
       Each value in the max_sums array is the maximum possible
       subarray sum in a subarray that includes numbers[i]
-    </div>
+     </div>
     <%= rb_code "code/problems/maximum_subarray_sum/s3.rb" %>
     <%= complexity_table do %>
-      Time   O(n)
-      Space  O(n)
+      Time   O(n)  Loop through all values in the input array once
+      Space  O(n)  Space for an n-length array
     <% end %>
   </section>
 
@@ -69,13 +72,15 @@
     <h2 class="great">Solution 4: Kadane's algorithm</h2>
     <div class="explanation">
       This is effectively the dynamic programming approach above
-      without an additional array, since we only need one cumulative
-      sum.
+      without needing space for an additional array. Since we only
+      need to look at the previous value in the max sums array to
+      determine the current value, we can use a single variable to
+      track that value instead of an entire array.
     </div>
     <%= rb_code "code/problems/maximum_subarray_sum/s4.rb" %>
     <%= complexity_table do %>
-      Time   O(n)
-      Space  O(1)
+      Time   O(n)  Loop through all values in the input array once
+      Space  O(1)  The sum and max sum
     <% end %>
   </section>
 </section>
