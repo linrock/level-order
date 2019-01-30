@@ -1,24 +1,35 @@
-# README
+# Level Order
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Algorithm problems and code solutions. This is a work-in-progress as
+I try to learn computer science and figure out how to explain the
+concepts I'm learning.
 
-Things you may want to cover:
+# Running tests
 
-* Ruby version
+Running all ruby tests
 
-* System dependencies
+```bash
+rspec
+```
 
-* Configuration
+Running a single set of ruby tests
 
-* Database creation
+```bash
+rspec spec/problems/n_queens_spec.rb
+```
 
-* Database initialization
+Running all js tests
 
-* How to run the test suite
+```bash
+yarn run test
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Running a single set of js tests
 
-* Deployment instructions
+```bash
+yarn run test test/longest_common_subsequence.js
+```
 
-* ...
+# License
+
+MIT
