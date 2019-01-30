@@ -61,4 +61,8 @@ header.main {
 
 pre {
   border-radius: 3px;
+
+  &.highlight {
+    box-shadow: 0 0 7px rgba(0, 0,0, 0.3);
+  }
 }

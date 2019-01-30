@@ -1,4 +1,5 @@
 class MaxHeap
+
   def initialize(values = [])
     @heap = values.dup
     heapify unless empty?
