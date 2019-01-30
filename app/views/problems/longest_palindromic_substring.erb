@@ -20,7 +20,7 @@
   Brute force            O(n^3)   O(1)
   Dynamic programming    O(n^2)   O(n^2)
   Central expansion      O(n^2)   O(1)
-  Manacher's algorithm   O(n)     O(1)
+  Manacher's algorithm   O(n)     O(n)
 <% end %>
 
 <section class="solutions">
@@ -123,8 +123,8 @@
 
     <%= rb_code "code/problems/longest_palindromic_substring/s4.rb" %>
     <%= complexity_table do %>
-      Time   O(n)
-      Space  O(n)
+      Time   O(n)  Iterating over 2n centers
+      Space  O(n)  2n space for expanded string with boundary characters
     <% end %>
   </div>
 </section>
