@@ -38,11 +38,12 @@
   <% end %>
 </section>
 
-<%= solutions_table([:bad, :average, :average, :good]) do %>
+<%= solutions_table([:bad, :average, :average, :good, :great]) do %>
   Recursion            O(2^n n)    O(n^2)
   Memoization          O(n^2)      O(n^2)
   Dynamic programming  O(n^2)      O(n^2)
   Iterative            O(n^2)      O(n)
+  Binet's formula      O(n log n)  O(n)
 <% end %>
 
 <section class="solutions">
@@ -93,9 +94,24 @@
       Space  O(n)     Two integers each containing O(n) bits
     <% end %>
   </section>
+
+  <section class="solution">
+    <h2 class="great">Solution 5: Binet's formula</h2>
+
+    <div class="explanation">
+    </div>
+    <%= rb_code "code/problems/fibonacci_numbers/s5.rb" %>
+    <%= complexity_table do %>
+      Time   O(n log n)  O(n) exponentiations at O(log n) cost each
+      Space  O(n)        Floating point numbers containing O(n) bits
+    <% end %>
+  </section>
 </section>
 
 <%= resources_section do %>
-  Fibonacci numbers
+  Wikipedia - Fibonacci numbers
   https://en.wikipedia.org/wiki/Fibonacci_number
+
+  Wikipedia - computational complexity of math operations
+  https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations
 <% end %>
