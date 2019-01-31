@@ -1,9 +1,10 @@
-<% text_rows = yield.split(/\n/)
+<% text_rows = yield.split(/\n|&#x000A;/)
    if text_rows.length > 0
      while text_rows.all? {|row| row[0] == " " || row[0].nil? }
        text_rows.each {|row| row[0] = "" }
      end
    end
-   text = text_rows.join("\n") %>
+   text = text_rows.join("\n").gsub(/&#x000A;/, '')
+   %>
 
 <pre class="code"><%= text %></pre>

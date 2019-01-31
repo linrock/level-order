@@ -13,8 +13,12 @@ Rails.application.routes.draw do
 
   %w( algorithms data_structures problems ).each do |type|
     prefix = "app/views/#{type}/"
-    Dir.glob("#{prefix}*.erb").each do |filename|
-      ds = filename.gsub(/#{prefix}/, '').gsub(/\.erb/, '')
+    files = [
+      Dir.glob("#{prefix}*.erb"),
+      Dir.glob("#{prefix}*.haml")
+    ]
+    files.flatten.each do |filename|
+      ds = filename.gsub(/#{prefix}/, '').gsub(/\.(erb|haml)/, '')
       get "/#{ds.gsub(/_/, '-')}" => "#{type}##{ds}"
     end
   end
