@@ -1,0 +1,52 @@
+%section.problem
+  %h1 N Queens
+  = explanation do
+    :preserve
+      Given a positive integer N, determine if it's possible to
+      arrange N queens on an NxN board such that no two queens
+      attack the same squares.
+
+      Return the board if it's possible. Otherwise return null.
+
+  = code_inline do
+    :preserve
+      Input:   5
+      Output:  1 0 0 0 0
+               0 0 1 0 0
+               0 0 0 0 1
+               0 1 0 0 0
+               0 0 0 1 0
+
+      Note:    0 = an empty square
+               1 = a square with a queen
+
+= solutions_table([:bad, :average, :good]) do
+  Brute force            O(n^2 * n^n)   O(n^2)
+  Backtracking           O(n!)          O(n^2)
+  Closed-form solution   O(n)           O(n^2)
+
+%section.solutions
+  %section.solution
+    %h2.bad Solution 1: Brute force
+    = rb_code "code/problems/n_queens/s1.rb"
+    = complexity_table do
+      Time   O(n^2 * n^n)
+      Space  O(n^2)
+
+  %section.solution
+    %h2.average Solution 2: Backtracking
+    = rb_code "code/problems/n_queens/s2.rb"
+    = complexity_table do
+      Time   O(n!)
+      Space  O(n^2)
+
+  %section.solution
+    %h2.good Solution 3: Closed form
+    = rb_code "code/problems/n_queens/s3.rb"
+    = complexity_table do
+      Time   O(n)
+      Space  O(n^2)
+
+= resources_section do
+  Wikipedia - Eight queens puzzle
+  https://en.wikipedia.org/wiki/Eight_queens_puzzle
