@@ -21,7 +21,7 @@
 
 %section.solutions
   .solution
-    %h2.bad Solution 1: Brute force
+    %h2.bad Solution 1.1: Brute force
     = solution_explanation do
       :preserve
         * Consider all possible sequences of one string
@@ -34,7 +34,7 @@
       Space  O(1)        The length of the longest subsequence seen
 
   .solution
-    %h2.good Solution 2: Dynamic programming
+    %h2.good Solution 1.2: Dynamic programming
     = solution_explanation do
       :preserve
         * Compare every prefix of one string to the other
@@ -68,7 +68,7 @@
 
 %section.solutions
   .solution
-    %h2.bad Solution 1: Brute force
+    %h2.bad Solution 2.1: Brute force
     = solution_explanation do
       Similar to solution 1 in part 1, consider all subsequences.
       However, instead of saving the length of the longest
@@ -78,7 +78,7 @@
       Space  O(min(m,n))  Length can't exceed the shorter of the two strings
 
   .solution
-    %h2.average Solution 2: Dynamic programming 1
+    %h2.average Solution 2.2: Dynamic programming 1
     = solution_explanation do
       Similar to solution 2 in part 1, iterate over all prefixes
       of the two strings. However, instead of saving the length of
@@ -89,7 +89,7 @@
       Space  O(mn * min(m,n))  2D array of longest common subsequences
 
   .solution
-    %h2.good Solution 3: Dynamic programming 2
+    %h2.good Solution 2.3: Dynamic programming 2
     = solution_explanation do
       Calculate the 2D array of longest subsequence lengths, exactly
       like in solution 2 in part 1. Now that we have the array of lengths,
