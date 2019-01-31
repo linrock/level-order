@@ -1,0 +1,104 @@
+%section.problem
+  %h1 Longest common subsequence
+  %h2 Part 1
+
+  = explanation do
+    Given two strings, find the length of the
+    longest subsequence common to both strings.
+    Items in the subsequence do not have to be
+    next to each other.
+
+  = code_inline do
+    :preserve
+      Input:   s1 = "aabbcc"
+               s2 = "axbxcx"
+      Output:  3
+      Note:    "abc" is the longest common subsequence
+
+= solutions_table([:bad, :good]) do
+  Brute force            O(2^m n)   O(1)
+  Dynamic programming    O(mn)      O(mn)
+
+%section.solutions
+  .solution
+    %h2.bad Solution 1: Brute force
+    = solution_explanation do
+      :preserve
+        * Consider all possible sequences of one string
+        * For each of these sequences, check if it's a subsequence in the other string
+        * If it is, note its length if it's longer than the last longest subsequence
+
+    = rb_code "code/problems/longest_common_subsequence/s1.rb"
+    = complexity_table do
+      Time   O(n * 2^m)  m comparisons for each of 2^n possible subsequences
+      Space  O(1)        The length of the longest subsequence seen
+
+  .solution
+    %h2.good Solution 2: Dynamic programming
+    = solution_explanation do
+      :preserve
+        * Compare every prefix of one string to the other
+        * If the last characters of each prefix match, add 1 to the longest length
+          without the last characters
+        * Otherwise, the longest length is the last longest length
+
+    = rb_code "code/problems/longest_common_subsequence/s2.rb"
+    = complexity_table do
+      Time   O(mn)  Two loops of m and n time
+      Space  O(mn)  2D array of longest common subsequence lengths
+
+%section.problem
+  %h2 Part 2
+
+  = explanation do
+    Find the longest common subsequence common
+    to both strings. If more than one subsequence
+    share the same length, return any of them.
+
+  = code_inline do
+    :preserve
+      Input:   s1 = "aabbcc"
+               s2 = "axbxcx"
+      Output:  "abc"
+
+= solutions_table([:bad, :average, :good]) do
+  Brute force             O(2^m n)          O(min(m,n))
+  Dynamic programming 1   O(mn * min(m,n))  O(mn * min(m,n))
+  Dynamic programming 2   O(mn)             O(mn)
+
+%section.solutions
+  .solution
+    %h2.bad Solution 1: Brute force
+    = solution_explanation do
+      Similar to solution 1 in part 1, consider all subsequences.
+      However, instead of saving the length of the longest
+      subsequence seen, save the longest sequence itself.
+    = complexity_table do
+      Time   O(n * 2^m)   m comparisons for each of 2^n possible subsequences
+      Space  O(min(m,n))  Length can't exceed the shorter of the two strings
+
+  .solution
+    %h2.average Solution 2: Dynamic programming 1
+    = solution_explanation do
+      Similar to solution 2 in part 1, iterate over all prefixes
+      of the two strings. However, instead of saving the length of
+      the longest subsequence seen, save a copy of the longest sequence
+      itself.
+    = complexity_table do
+      Time   O(mn * min(m,n))  Two loops of m and n time with array copying
+      Space  O(mn * min(m,n))  2D array of longest common subsequences
+
+  .solution
+    %h2.good Solution 3: Dynamic programming 2
+    = solution_explanation do
+      Calculate the 2D array of longest subsequence lengths, exactly
+      like in solution 2 in part 1. Now that we have the array of lengths,
+      we can traverse the array in O(m + n) time to generate a longest
+      subsequence.
+    = complexity_table do
+      Time   O(mn)  Two loops of m and n time
+      Space  O(mn)  2D array of longest common subsequence lengths
+
+= resources_section do
+  Wikipedia - Longest common subsequence
+  https://en.wikipedia.org/wiki/Longest_common_subsequence_problem
