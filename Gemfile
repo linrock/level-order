@@ -15,13 +15,12 @@ gem 'haml'
 gem 'rouge'      # code highlighter
 gem 'redcarpet'  # markdown
 
-gem 'gmp', require: false # high-precision floating-point arithmetic
-
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.8'
+  gem 'gmp', require: false # high-precision floating-point arithmetic
 end
 
 group :development do
