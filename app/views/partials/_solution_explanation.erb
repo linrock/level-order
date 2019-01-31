@@ -1,5 +1,5 @@
 <div class="explanation">
-  <% html = yield.gsub(/\^(\d+|[a-z])/, '<sup>\1</sup>').gsub(/\A\n*/, '')
+  <% html = yield.gsub(/\^([\d\.]+|[a-z])/, '<sup>\1</sup>').gsub(/\A\n*/, '')
      html_rows = html.split(/\n/)
      if html_rows.length > 0
        while html_rows.all? {|row| row[0] == " " || row[0].nil? }

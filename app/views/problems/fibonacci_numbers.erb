@@ -41,9 +41,9 @@
 <%= solutions_table([:bad, :average, :average, :good, :great]) do %>
   Recursion            O(2^n n)    O(n^2)
   Memoization          O(n^2)      O(n^2)
-  Dynamic programming  O(n^2)      O(n^2)
-  Iterative            O(n^2)      O(n)
-  Binet's formula      O(n log n)  O(n)
+  Dynamic programming  O(n^2)                O(n^2)
+  Iterative            O(n^2)                O(n)
+  Binet's formula      O(n log n log log n) to O(n^2)  O(n)
 <% end %>
 
 <section class="solutions">
@@ -98,12 +98,36 @@
   <section class="solution">
     <h2 class="great">Solution 5: Binet's formula</h2>
 
-    <div class="explanation">
-    </div>
+    <%= explanation do %>
+      Calculating a fibonacci number using this formula requires n multiplications
+      of O(n) bit numbers. The runtime depends on the multiplication algorithm being
+      used:
+
+      * O(n^2) -               Regular long multiplication
+      * O(n^1.585) -           Karatsuba algorithm
+      * O(n^1.465) -           3-way Toom-Cook multiplication
+      * O(n log n log log n) - Schonhage-Strassen algorithm
+
+      In the worst case, multiplication is done the way we learned in school -
+      multiplying each digit together and summing them up. The runtime is O(n^2),
+      but in practice this algorithm would be slower than the O(n^2) addition algorithms
+      because of performance penalties in floating-point arithmetic vs adding
+      integers together.
+
+      The best case happens with the Schonhage-Strassen algorithm, which in practice
+      starts to outperform the other algorithms at astronomically large values of n
+      (tens-of-thousands of digits).
+
+      The floating point precision of standard libraries are typically not enough to
+      handle the precision needed for large numbers of n. You'll need to use a library
+      designed to handle these cases like the
+      <a href="https://gmplib.org/">GNU multiple precision arithmetic library</a>
+      if you want accurate calculations as n increases in size.
+    <% end %>
     <%= rb_code "code/problems/fibonacci_numbers/s5.rb" %>
     <%= complexity_table do %>
-      Time   O(n log n)  O(n) exponentiations at O(log n) cost each
-      Space  O(n)        Floating point numbers containing O(n) bits
+      Time   O(n log n log log n) to O(n^2)  Varies depending on the multiplication algorithm used
+      Space  O(n)                  Floating point numbers each of size O(n)
     <% end %>
   </section>
 </section>
