@@ -2,8 +2,9 @@
   <h1>Fibonacci numbers</h1>
 
   <%= explanation do %>
-    A fibonacci number is the sum of the two previous numbers
-    in the sequence.
+    A Fibonacci number is the sum of the two previous numbers
+    in the sequence. Write a function that finds the n-th Fibonacci
+    number.
 
     These are the first 10 fibonacci numbers:  1 1 2 3 5 8 13 21 34 55
   <% end %>
@@ -19,14 +20,11 @@
     Output:  280571172992510140037611932413038677189525
   <% end %>
 
+  <h2>Solutions</h2>
   <%= explanation do %>
-    Since the input to the fibonacci functions is a number, we have to consider
-    the number of bits needed to represent the number when calculating time/space
-    complexities.
-
     The number of bits needed to represent the n-th fibonacci number scales
-    linearly with n, so we need to consider an extra O(n) factor when adding
-    and storing fibonacci numbers.
+    linearly with n, so we need to consider an extra O(n) factor when considering
+    time/space complexities.
 
     For reference:
 

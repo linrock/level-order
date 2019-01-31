@@ -4,7 +4,6 @@
        text_rows.each {|row| row[0] = "" }
      end
    end
-   text = text_rows.join("\n").gsub(/&#x000A;/, '')
-   %>
+   text = text_rows.join("\n").gsub(/&#x000A;/, '') %>
 
 <pre class="code"><%= text %></pre>
