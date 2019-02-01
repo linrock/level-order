@@ -1,5 +1,5 @@
 <% rows = yield.strip.split(/\n/).map do |row|
-     row.strip.gsub(/\^(\d|[a-z])/, '<sup>\1</sup>').split(/\s{2,}/)
+     BigO.new(row.strip).to_s.split(/\s{2,}/)
    end
 %>
 

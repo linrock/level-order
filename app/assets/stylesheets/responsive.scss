@@ -3,7 +3,7 @@
     width: 100%;
   }
 
-  // fix pre font size on iOS safari
+  // stop iOS safari from messing with font sizes
   html {
     -webkit-text-size-adjust: 100%;
   }
