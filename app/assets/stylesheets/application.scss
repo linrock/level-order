@@ -4,6 +4,15 @@
  *= require pygments
  */
 
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body {
   font-family: "Source Sans Pro", Arial, sans-serif;
   margin: 0;
@@ -20,16 +29,31 @@ sup {
   position: relative;
   vertical-align: middle;
   top: -6px;
-  font-size: 0.8em;
+  font-size: 0.8rem;
+}
+
+pre {
+  border-radius: 0.25rem;
+  // font-family: monospace;
+  font-family: "PT Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1.125rem;
+  padding: 1.25rem;
+
+  &.highlight {
+    box-shadow: 0 0 7px rgba(0, 0,0, 0.3);
+  }
 }
 
 table {
+  font-size: 1rem;
+
   th {
     text-align: left;
   }
 
   td {
-    padding-right: 20px;
+    padding-right: 1.25rem;
   }
 }
 
@@ -45,6 +69,7 @@ a {
 .container {
   margin: 0px auto;
   width: 550px;
+  padding: 0 15px;
 
   &.top-margin {
     margin-top: 80px;
@@ -54,7 +79,6 @@ a {
     margin-bottom: 80px;
   }
 }
-
 
 section.margin-bottom {
   margin-bottom: 60px;
@@ -66,7 +90,7 @@ header.main {
   color: white;
 
   h1 {
-    font-size: inherit;
+    font-size: 1rem;
     font-weight: bold;
     margin: 0;
     line-height: 40px;
@@ -89,13 +113,5 @@ header.main {
   .container {
     display: flex;
     align-items: center;
-  }
-}
-
-pre {
-  border-radius: 3px;
-
-  &.highlight {
-    box-shadow: 0 0 7px rgba(0, 0,0, 0.3);
   }
 }

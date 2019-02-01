@@ -1,0 +1,10 @@
+@media (screen and max-width: 640px) {
+  .container {
+    width: 100%;
+  }
+
+  // fix pre font size on iOS safari
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+}
