@@ -15,6 +15,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+// exponents
+sup {
+  position: relative;
+  vertical-align: middle;
+  top: -6px;
+  font-size: 0.8em;
+}
+
 table {
   th {
     text-align: left;
