@@ -8,27 +8,32 @@ concepts I'm learning.
 
 Running all ruby tests
 
-```bash
+```
 rspec
 ```
 
 Running a single set of ruby tests
 
-```bash
+```
 rspec spec/problems/n_queens_spec.rb
 ```
 
 Running all js tests
 
-```bash
+```
 yarn run test
 ```
 
 Running a single set of js tests
 
-```bash
+```
 yarn run test test/longest_common_subsequence.js
 ```
+
+# Contributions
+
+If anything seems wrong or incomplete, feel free to file an
+issue or open a PR to fix it.
 
 # License
 

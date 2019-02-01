@@ -115,10 +115,21 @@
     <h2 class="great">Solution 4: Manacher's algorithm</h2>
 
     <%= solution_explanation do %>
-      This also applies the central expansion algorithm, but improves
-      upon its runtime by avoiding duplicate work. It avoids re-checking
-      palindromes that are guaranteed to exist by realizing that the left
-      and right sides of a palindrome are mirror images of each other.
+      This algorithm combines the ideas explored in solutions 2 and 3:
+
+      * Storing palindrome lengths after finding a palindrome
+      * Central expansion for efficient iteration over palindromes
+
+      By using the fact that the left and right sides of a palindrome
+      are mirror images of each other, it avoids re-checking palindromes
+      that have already been found.
+
+      If a shorter palindrome is located within the left of the center of
+      a longer palindrome, this shorter palindrome is guaranteed to exist
+      on the right side of the longer palindrome as well. When reaching
+      the center of the shorter palindrome on the right side, the central
+      expansion can begin at the known ends of the palindrome rather from
+      the center.
     <% end %>
 
     <%= rb_code "code/problems/longest_palindromic_substring/s4.rb" %>
