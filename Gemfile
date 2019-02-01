@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.2'
 gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'webpacker'
+gem 'webpacker', '>= 4.0.x'
 # gem 'mini_racer', platforms: :ruby
 
 gem 'haml'
