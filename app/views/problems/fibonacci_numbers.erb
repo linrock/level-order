@@ -37,10 +37,10 @@
 </section>
 
 <%= solutions_table([:bad, :average, :average, :good, :great]) do %>
-  Recursion            O(2^n n)    O(n^2)
-  Memoization          O(n^2)      O(n^2)
-  Dynamic programming  O(n^2)                O(n^2)
-  Iterative            O(n^2)                O(n)
+  Recursion            O(2^n n^2)                      O(n^2)
+  Memoization          O(n^2)                          O(n^2)
+  Dynamic programming  O(n^2)                          O(n^2)
+  Iterative            O(n^2)                          O(n)
   Binet's formula      O(n log n log log n) to O(n^2)  O(n)
 <% end %>
 
@@ -52,8 +52,8 @@
     </div>
     <%= rb_code "code/problems/fibonacci_numbers/s1.rb" %>
     <%= complexity_table do %>
-      Time   O(2^n n)  2x recursive calls at each of O(n) levels
-      Space  O(n^2)   O(n) max stack depth with O(n) bits for the nth number
+      Time   O(2^n n^2)  2 recursive calls adding O(n)-bit numbers at n levels
+      Space  O(n^2)      O(n) max stack depth with O(n) bits for the nth number
     <% end %>
   </section>
 
@@ -76,8 +76,8 @@
     </div>
     <%= rb_code "code/problems/fibonacci_numbers/s3.rb" %>
     <%= complexity_table do %>
-      Time   O(n^2)   O(n) loop adding O(n) bit numbers at each iteration
-      Space  O(n^2)   n-size array of numbers with O(n) bits per number
+      Time   O(n^2)   O(n) loop adding O(n)-bit numbers at each iteration
+      Space  O(n^2)   n-sized array of numbers with O(n) bits per number
     <% end %>
   </section>
 
@@ -97,28 +97,46 @@
     <h2 class="great">Solution 5: Binet's formula</h2>
 
     <%= explanation do %>
-      Calculating a fibonacci number using this formula requires n multiplications
-      of O(n) bit numbers. The runtime depends on the multiplication algorithm being
-      used:
+      Calculating a fibonacci number with this formula uses n multiplications
+      of O(n)-bit numbers. The runtime depends on the multiplication algorithm
+      being used:
 
-      * O(n^2) -               Regular long multiplication
-      * O(n^1.585) -           Karatsuba algorithm
-      * O(n^1.465) -           3-way Toom-Cook multiplication
-      * O(n log n log log n) - Schonhage-Strassen algorithm
+      <table>
+        <tr>
+          <th>Runtime</th>
+          <th>Algorithm</th>
+        </tr>
+        <tr>
+          <td>O(n^2)</td>
+          <td>Regular long multiplication</td>
+        </tr>
+        <tr>
+          <td>O(n^1.585)</td>
+          <td>Karatsuba algorithm</td>
+        </tr>
+        <tr>
+          <td>O(n^1.465)</td>
+          <td>3-way Toom-Cook multiplication</td>
+        </tr>
+        <tr>
+          <td>O(n log n log log n)</td>
+          <td>Schonhage-Strassen algorithm</td>
+        <tr/>
+      </table>
 
       In the worst case, multiplication is done the way we learned in school -
       multiplying each digit together and summing them up. The runtime is O(n^2),
-      but in practice this algorithm would be slower than the O(n^2) addition algorithms
+      but in practice this algorithm is slower than the O(n^2) addition algorithms
       because of performance penalties in floating-point arithmetic vs adding
-      integers together.
+      integers.
 
-      The best case happens with the Schonhage-Strassen algorithm, which in practice
-      starts to outperform the other algorithms at astronomically large values of n
+      The best case happens with the Schonhage-Strassen algorithm, which starts to
+      outperform the other algorithms at astronomically large values of n
       (tens-of-thousands of digits).
 
-      The floating point precision of standard libraries are typically not enough to
-      handle the precision needed for large numbers of n. You'll need to use a library
-      designed to handle these cases like the
+      The floating point precision of standard libraries in most programming languages
+      are not enough to handle the precision needed for large numbers of n. You'll need
+      to use a library designed to handle these cases like the
       <a href="https://gmplib.org/">GNU multiple precision arithmetic library</a>
       if you want accurate calculations as n increases in size.
     <% end %>
