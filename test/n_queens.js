@@ -37,7 +37,12 @@ describe('n-queens problem', () => {
     const { nQueens } = require(filePath)
 
     it('solves the n queens problem', () => {
-      assert.equal(checkBoard(nQueens(8)), true)
+      assert.equal(checkBoard(nQueens(1)), true)
+      assert.equal(nQueens(2), false)
+      assert.equal(nQueens(3), false)
+      for (let i = 4; i < 12; i++) {
+        assert.equal(checkBoard(nQueens(8)), true)
+      }
     })
   })
 })

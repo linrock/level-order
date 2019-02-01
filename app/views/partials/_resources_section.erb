@@ -1,5 +1,5 @@
 <% links = yield.strip.split(/\n{2,}/).map do |pair|
-     pair.split(/\n/)
+     pair.split(/\n/).map(&:strip)
    end %>
 
 <section class="resources">
