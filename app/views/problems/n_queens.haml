@@ -20,10 +20,26 @@
       Note:    0 = an empty square
                1 = a square with a queen
 
+  %h2 Solutions
+  = explanation do
+    :preserve
+      The space complexity depends on the board representation used.
+      We could use an array with N x N elements.
+      However, since we only need 1s and 0s for each square of the board,
+      we can also use a single n^2-bit number to represent the board.
+
+      The number of bits in an n^2-bit number is log n^2 = 2 log n
+
+      Space complexity of board representations:
+
+      * N x N array = O(n^2)
+      * N^2-bit number = O(log n)
+
+
 = solutions_table([:bad, :average, :good]) do
-  Brute force            O(n^2 * n^n)   O(n^2)
-  Backtracking           O(n!)          O(n^2)
-  Closed-form solution   O(n)           O(n^2)
+  Brute force            O(n^2 * n^n)   O(log n) or O(n^2)
+  Backtracking           O(n!)          O(log n) or O(n^2)
+  Closed-form solution   O(n)           O(log n) or O(n^2)
 
 %section.solutions
   %section.solution
@@ -31,21 +47,21 @@
     = rb_code "code/problems/n_queens/s1.rb"
     = complexity_table do
       Time   O(n^2 * n^n)
-      Space  O(n^2)
+      Space  O(log n) or O(n^2)
 
   %section.solution
     %h2.average Solution 2: Backtracking
     = rb_code "code/problems/n_queens/s2.rb"
     = complexity_table do
       Time   O(n!)
-      Space  O(n^2)
+      Space  O(log n) or O(n^2)
 
   %section.solution
     %h2.good Solution 3: Closed form
     = rb_code "code/problems/n_queens/s3.rb"
     = complexity_table do
       Time   O(n)
-      Space  O(n^2)
+      Space  O(log n) or O(n^2)
 
 = resources_section do
   Wikipedia - Eight queens puzzle

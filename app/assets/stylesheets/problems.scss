@@ -12,6 +12,16 @@ pre.code {
 .good    { color: #8AFF00 !important; }
 .great   { color: #00FF45 !important; }
 
+// explanation content block
+.explanation {
+  line-height: 1.4em;
+  margin-bottom: 30px;
+
+  p {
+    margin: 1.5em 0;
+  }
+}
+
 // problem description at the top of the page
 section.problem {
   line-height: 1.5em;
@@ -45,11 +55,6 @@ section.solutions {
 
   h2 {
     color: #FFBD00;
-  }
-
-  .explanation {
-    line-height: 1.5em;
-    margin-bottom: 30px;
   }
 
   .solution {
