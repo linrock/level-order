@@ -36,12 +36,13 @@
   <% end %>
 </section>
 
-<%= solutions_table([:bad, :average, :average, :good, :great]) do %>
+<%= solutions_table([:bad, :average, :average, :good, :good, :great]) do %>
   Recursion            O(2^n n^2)                      O(n^2)
   Memoization          O(n^2)                          O(n^2)
   Dynamic programming  O(n^2)                          O(n^2)
   Iterative            O(n^2)                          O(n)
   Binet's formula      O(n log n log log n) to O(n^2)  O(n)
+  Fast doubling        O(n log n)                      O(n)
 <% end %>
 
 <section class="solutions">
@@ -97,9 +98,11 @@
     <h2 class="great">Solution 5: Binet's formula</h2>
 
     <%= explanation do %>
-      Calculating a fibonacci number with this formula uses n multiplications
-      of O(n)-bit numbers. The runtime depends on the multiplication algorithm
-      being used:
+      Calculating a fibonacci number with this formula uses log(n)
+      multiplications when using
+      [exponentiation by squaring](https://en.wikipedia.org/wiki/Exponentiation_by_squaring#Computational_complexity),
+      which results in a time complexity bounded by the runtime of
+      the multiplication algorithm being used:
 
       <table>
         <tr>
@@ -136,14 +139,28 @@
 
       The floating point precision of standard libraries in most programming languages
       are not enough to handle the precision needed for large numbers of n. You'll need
-      to use a library designed to handle these cases like the
+      to use a library designed to handle unlimited precision like the
       <a href="https://gmplib.org/">GNU multiple precision arithmetic library</a>
       if you want accurate calculations as n increases in size.
     <% end %>
     <%= rb_code "code/problems/fibonacci_numbers/s5.rb" %>
     <%= complexity_table do %>
       Time   O(n log n log log n) to O(n^2)  Varies depending on the multiplication algorithm used
-      Space  O(n)                  Floating point numbers each of size O(n)
+      Space  O(n)                            Floating point numbers each of size O(n)
+    <% end %>
+  </section>
+
+  <section class="solution">
+    <h2 class="great">Solution 6: Fast doubling</h2>
+    <%= explanation do %>
+      Same runtime as Binet's formula above, but operating only on integers, so
+      there's no need for an arbitrary floating point precision library.
+    <% end %>
+
+    <%= rb_code "code/problems/fibonacci_numbers/s6.rb" %>
+    <%= complexity_table do %>
+      Time   O(n log n log log n) to O(n^2)  Varies depending on the multiplication algorithm used
+      Space  O(n)                            Integers of size O(n)
     <% end %>
   </section>
 </section>
@@ -154,4 +171,10 @@
 
   Wikipedia - computational complexity of math operations
   https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations
+
+  Computing fibonacci numbers using Binet's formula
+  https://bosker.wordpress.com/2011/07/27/computing-fibonacci-numbers-using-binet%E2%80%99s-formula/
+
+  Fast fibonacci algorithms
+  https://www.nayuki.io/page/fast-fibonacci-algorithms
 <% end %>

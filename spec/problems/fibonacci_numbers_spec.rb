@@ -66,4 +66,16 @@ RSpec.describe 'fibonacci number problem' do
       expect(fibonacci(1000)).to eq(fib_1000)
     end
   end
+
+  context "Fast doubling" do
+    before { require 'fibonacci_numbers/s6.rb' }
+
+    it 'calculates fibonacci numbers efficiently' do
+      numbers.each_with_index do |number, i|
+        expect(fibonacci(i)).to eq(number)
+      end
+      expect(fibonacci(200)).to eq(fib_200)
+      expect(fibonacci(1000)).to eq(fib_1000)
+    end
+  end
 end
