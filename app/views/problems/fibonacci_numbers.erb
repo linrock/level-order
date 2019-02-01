@@ -36,13 +36,13 @@
   <% end %>
 </section>
 
-<%= solutions_table([:bad, :average, :average, :good, :good, :great]) do %>
+<%= solutions_table([:bad, :average, :average, :good, :great, :great]) do %>
   Recursion            O(2^n n^2)                      O(n^2)
   Memoization          O(n^2)                          O(n^2)
   Dynamic programming  O(n^2)                          O(n^2)
   Iterative            O(n^2)                          O(n)
   Binet's formula      O(n log n log log n) to O(n^2)  O(n)
-  Fast doubling        O(n log n)                      O(n)
+  Fast doubling        O(n log n log log n) to O(n^2)  O(n)
 <% end %>
 
 <section class="solutions">
