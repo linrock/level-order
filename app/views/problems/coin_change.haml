@@ -1,0 +1,33 @@
+%section.problem
+  %h1 Coin change
+  = explanation do
+    :preserve
+      Given a list of coin values and an amount, find
+      the minimum number of coins needed to add up
+      to that amount. You may use each coin as many
+      times as needed. Return null if it's not possible
+
+  = code_inline do
+    :preserve
+      Input:   coins = [1, 5, 10, 25]
+               amount = 75
+      Output:  3
+
+      At least 3 coins are needed - [25, 25, 25]
+
+  %h2 Solutions
+  = explanation do
+    :preserve
+      * n = number of coins
+      * A = the amount
+
+= solutions_table([:good, :good]) do
+  Dynamic programming   O(nA)  O(A)
+  Breadth-first search  O(nA)  O(A)
+
+%section.solutions
+  %section.solution
+    %h2.good Solution 1: Dynamic programming
+
+  %section.solution
+    %h2.good Solution 2: Breadth-first search
